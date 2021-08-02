@@ -14,7 +14,11 @@ TODO :
 
 **Elgato Stream Deck button plugin for Star Citizen**
 
+![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/SgsPN2d.png)
+
 This plugin connects to Star Citizen to get the key bindings.
+
+**The pluging does not contain any button images or ready made streamdeck profiles.**
 
 Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the defaultProfile.xml from the pk4 file etc.
 
