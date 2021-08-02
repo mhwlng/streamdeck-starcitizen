@@ -37,8 +37,8 @@ Choose a button in the streamdeck software (drag and drop), then choose a Star C
 Add an image to a button in this way:
 
 ![Button Image](https://i.imgur.com/xkgy7uZ.png)
-Animated gif files are supported.
 
+Animated gif files are supported.
 
 When the plugin is first started, it finds and opens the game file :
 
@@ -56,9 +56,9 @@ The plugin uses all the active keyboard bindings from `defaultProfile.xml` and t
 
 `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\USER\Client\0\Profiles\default\actionmaps.xml`
 
-The `dropdowntemplate.html` can be used to update the `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\PropertyInspector\StarCitizen\Static.html` file.
+The `dropdowntemplate.html` can be used to reconfigure the `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\PropertyInspector\StarCitizen\Static.html` file.
 
-
+This may be needed, in case more custom keyboard bindings were added to `actionmaps.xml`, that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
 
 The plugin installer is here: https://github.com/mhwlng/streamdeck-starcitizen/releases
 
