@@ -168,6 +168,7 @@
     <Compile Include="CryXMLlib\CryXmlBinReader.cs" />
     <Compile Include="CryXMLlib\CryXmlNodeRef.cs" />
     <Compile Include="CryXMLlib\XmlTree.cs" />
+    <Compile Include="FifoExecution.cs" />
     <Compile Include="p4kFile\p4kDirectory.cs" />
     <Compile Include="p4kFile\p4kDirectoryEntry.cs" />
     <Compile Include="p4kFile\p4kEndOfCentralDirRecord.cs" />

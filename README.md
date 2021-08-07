@@ -4,9 +4,7 @@
 
 TODO :
 
-* Test multiple language keyboards (only lightly tested 3.13 with US keyboard)
-
-* Automatically update binding in streamdeck plugin when changing binding in Star Citizen options screen (now streamdeck.exe has to be restarted)
+* Test multiple language keyboards (only lightly tested 3.14 with US keyboard)
 
 * Add more logging to pluginlog.log
 
@@ -17,6 +15,8 @@ TODO :
 ![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/SgsPN2d.png)
 
 This plugin gets the key bindings from the Star Citizen game files.
+
+The bindings in the streamdeck plugin are automatically updated when changing bindings in Star Citizen options screen.
 
 **The plugin does not contain any button images or ready made streamdeck profiles.**
 

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using BarRaider.SdTools;
 using p4ktest;
 using p4ktest.SC;
 using Action = System.Action;
@@ -168,19 +170,19 @@ namespace SCJMapper_V2.SC
             string uiLabel = (string) actionmap.Attribute("UILabel");
             string uiCategory = (string) actionmap.Attribute("UICategory");
 
-            if (string.IsNullOrEmpty(uiLabel))
-                return;
-
-            if (string.IsNullOrEmpty(uiCategory))
-                uiCategory = mapName;
-
-            uiLabel = SCUiText.Instance.Text(uiLabel, uiLabel);
-            uiCategory = SCUiText.Instance.Text(uiCategory, uiCategory);
-
-            var m_currentMap = new ActionMap {Name = mapName, UILabel = uiLabel, UICategory = uiCategory};
-
             if (!maps.ContainsKey(mapName))
             {
+                if (string.IsNullOrEmpty(uiLabel))
+                    return;
+
+                if (string.IsNullOrEmpty(uiCategory))
+                    uiCategory = mapName;
+
+                uiLabel = SCUiText.Instance.Text(uiLabel, uiLabel);
+                uiCategory = SCUiText.Instance.Text(uiCategory, uiCategory);
+
+                var m_currentMap = new ActionMap { Name = mapName, UILabel = uiLabel, UICategory = uiCategory };
+
                 IEnumerable<XElement> actions = actionmap.Elements().Where(x => x.Name == "action");
                 foreach (XElement action in actions)
                 {
@@ -215,6 +217,8 @@ namespace SCJMapper_V2.SC
                     }
                     else
                     {
+                        Logger.Instance.LogMessage(TracingLevel.INFO, actionName + "??????????????????" + mapName);
+
                         // do something ?????????????
                     }
 
@@ -354,50 +358,59 @@ namespace SCJMapper_V2.SC
 
         public void CreateCsv()
         {
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(TheUser.FileStoreDir, "keybindings.csv")))
+            try
             {
-                outputFile.WriteLine("sep=\t");
-                var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
-
-                headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Keyboard" + "\t";
-
-                headerline += "Name" + "\t" +
-                              "OnPress" + "\t" +
-                              "OnHold" + "\t" +
-                              "OnRelease" + "\t" +
-                              "MultiTap" + "\t" +
-                              "MultiTapBlock" + "\t" +
-                              "PressTriggerThreshold" + "\t" +
-                              "ReleaseTriggerThreshold" + "\t" +
-                              "ReleaseTriggerDelay" + "\t" +
-                              "Retriggerable";
-
-
-                outputFile.WriteLine(headerline);
-
-                foreach (var action in actions.OrderBy(x => x.Value.MapUILabel)
-                    .ThenBy(x => x.Value.UILabel))
+                using (StreamWriter outputFile =
+                    new StreamWriter(Path.Combine(TheUser.FileStoreDir, "keybindings.csv")))
                 {
-                    var csvline = action.Value.MapUICategory + "\t" + action.Value.MapUILabel + "\t" +
-                                  action.Value.MapName + "\t";
+                    outputFile.WriteLine("sep=\t");
+                    var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
 
-                    csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name +
-                               "\t" + action.Value.Keyboard + "\t";
+                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Keyboard" + "\t";
 
-                    csvline += action.Value.ActivationMode?.Name + "\t" +
-                               action.Value.ActivationMode?.OnPress + "\t" +
-                               action.Value.ActivationMode?.OnHold + "\t" +
-                               action.Value.ActivationMode?.OnRelease + "\t" +
-                               action.Value.ActivationMode?.MultiTap + "\t" +
-                               action.Value.ActivationMode?.MultiTapBlock + "\t" +
-                               action.Value.ActivationMode?.PressTriggerThreshold + "\t" +
-                               action.Value.ActivationMode?.ReleaseTriggerThreshold + "\t" +
-                               action.Value.ActivationMode?.ReleaseTriggerDelay + "\t" +
-                               action.Value.ActivationMode?.Retriggerable;
+                    headerline += "Name" + "\t" +
+                                  "OnPress" + "\t" +
+                                  "OnHold" + "\t" +
+                                  "OnRelease" + "\t" +
+                                  "MultiTap" + "\t" +
+                                  "MultiTapBlock" + "\t" +
+                                  "PressTriggerThreshold" + "\t" +
+                                  "ReleaseTriggerThreshold" + "\t" +
+                                  "ReleaseTriggerDelay" + "\t" +
+                                  "Retriggerable";
 
 
-                    outputFile.WriteLine(csvline);
+                    outputFile.WriteLine(headerline);
+
+                    foreach (var action in actions.OrderBy(x => x.Value.MapUILabel)
+                        .ThenBy(x => x.Value.UILabel))
+                    {
+                        var csvline = action.Value.MapUICategory + "\t" + action.Value.MapUILabel + "\t" +
+                                      action.Value.MapName + "\t";
+
+                        csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name +
+                                   "\t" + action.Value.Keyboard + "\t";
+
+                        csvline += action.Value.ActivationMode?.Name + "\t" +
+                                   action.Value.ActivationMode?.OnPress + "\t" +
+                                   action.Value.ActivationMode?.OnHold + "\t" +
+                                   action.Value.ActivationMode?.OnRelease + "\t" +
+                                   action.Value.ActivationMode?.MultiTap + "\t" +
+                                   action.Value.ActivationMode?.MultiTapBlock + "\t" +
+                                   action.Value.ActivationMode?.PressTriggerThreshold + "\t" +
+                                   action.Value.ActivationMode?.ReleaseTriggerThreshold + "\t" +
+                                   action.Value.ActivationMode?.ReleaseTriggerDelay + "\t" +
+                                   action.Value.ActivationMode?.Retriggerable;
+
+
+                        outputFile.WriteLine(csvline);
+                    }
                 }
+            }
+
+            catch (Exception ex)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, $"CreateCsv {ex}");
             }
         }
 

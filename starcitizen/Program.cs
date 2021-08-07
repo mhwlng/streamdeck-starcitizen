@@ -1,42 +1,139 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using BarRaider.SdTools;
 using p4ktest.SC;
 using SCJMapper_V2.SC;
 
 namespace starcitizen
 {
+    public class KeyBindingFileEvent : EventArgs
+    {
+
+    }
+
+    public class KeyBindingWatcher : FileSystemWatcher
+    {
+        public event EventHandler KeyBindingUpdated;
+
+        protected KeyBindingWatcher()
+        {
+
+        }
+
+        public KeyBindingWatcher(string path, string fileName)
+        {
+            Filter = fileName;
+            NotifyFilter = NotifyFilters.CreationTime | NotifyFilters.LastWrite;
+            Path = path;
+        }
+
+        public virtual void StartWatching()
+        {
+            if (EnableRaisingEvents)
+            {
+                return;
+            }
+
+            Changed -= UpdateStatus;
+            Changed += UpdateStatus;
+
+            EnableRaisingEvents = true;
+        }
+
+        public virtual void StopWatching()
+        {
+            try
+            {
+                if (EnableRaisingEvents)
+                {
+                    Changed -= UpdateStatus;
+
+                    EnableRaisingEvents = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError($"Error while stopping Status watcher: {e.Message}");
+                Trace.TraceInformation(e.StackTrace);
+            }
+        }
+
+        protected void UpdateStatus(object sender, FileSystemEventArgs e)
+        {
+            Thread.Sleep(50);
+
+            KeyBindingUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
+
+    }
     class Program
     {
-        public static DProfileReader dpReader = new DProfileReader(); // we may read a profile
+        public static FifoExecution keywatcherjob = new FifoExecution();
+
+        public static KeyBindingWatcher KeyBindingWatcher;
+
+        public static DProfileReader dpReader = new DProfileReader(); 
+
+        public static string profile;
+
+        public static void HandleKeyBindingEvents(object sender, object evt)
+        {
+            Logger.Instance.LogMessage(TracingLevel.INFO, $"Reloading Key Bindings");
+
+            keywatcherjob.QueueUserWorkItem(GetKeyBindings, null);
+        }
+
+
+        private static void GetKeyBindings(Object threadContext)
+        {
+            if (KeyBindingWatcher != null)
+            {
+                KeyBindingWatcher.StopWatching();
+                KeyBindingWatcher.Dispose();
+                KeyBindingWatcher = null;
+            }
+
+            // load stuff
+            var actionmaps = SCDefaultProfile.ActionMaps();
+
+            dpReader = new DProfileReader();
+
+            dpReader.fromXML(profile);
+
+            dpReader.fromActionProfile(actionmaps);
+
+            dpReader.Actions();
+
+            dpReader.CreateDropdownTemplate();
+
+            dpReader.CreateCsv();
+
+            Logger.Instance.LogMessage(TracingLevel.INFO, "monitoring key binding file" );
+            KeyBindingWatcher = new KeyBindingWatcher(SCPath.SCClientProfilePath, "actionmaps.xml");
+            KeyBindingWatcher.KeyBindingUpdated += HandleKeyBindingEvents;
+            KeyBindingWatcher.StartWatching();
+        }
+
 
         static void Main(string[] args)
         {
             Logger.Instance.LogMessage(TracingLevel.INFO, "Init Star Citizen");
 
-
             try
             {
-
                 SCFiles.Instance.UpdatePack(); // update game files
 
-                var profile = SCDefaultProfile.DefaultProfile();
+                profile = SCDefaultProfile.DefaultProfile();
 
-                var actionmaps = SCDefaultProfile.ActionMaps();
-
-                dpReader.fromXML(profile);
-
-                dpReader.fromActionProfile(actionmaps);
-
-                dpReader.Actions();
-
-                dpReader.CreateDropdownTemplate();
-
-                dpReader.CreateCsv();
+                GetKeyBindings(null);
 
             }
             catch (Exception ex)
