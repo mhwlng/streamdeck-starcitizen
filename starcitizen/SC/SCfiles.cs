@@ -82,6 +82,9 @@ namespace SCJMapper_V2.SC
             //Logger.Instance.LogMessage(TracingLevel.DEBUG, "UpdateDefProfileFile - Entry" );
 
             string retVal = "";
+
+            Logger.Instance.LogMessage(TracingLevel.INFO, SCPath.SCData_p4k);
+
             if (File.Exists(SCPath.SCData_p4k))
             {
                 try
@@ -356,6 +359,9 @@ namespace SCJMapper_V2.SC
                 {
                     DateTime dateTime = File.GetLastWriteTime(SCPath.SCData_p4k);
                     pakUpdated = (dateTime > m_pakFile.FileDateTime);
+
+                    Logger.Instance.LogMessage(TracingLevel.INFO, $"{SCPath.SCData_p4k} needs update : {pakUpdated}");
+
                 }
             }
 

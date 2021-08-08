@@ -53,6 +53,9 @@ namespace SCJMapper_V2.SC
         public static string ActionMaps()
         {
             string mFile = Path.Combine(SCPath.SCClientProfilePath, "actionmaps.xml");
+
+            Logger.Instance.LogMessage(TracingLevel.INFO, mFile);
+
             if (File.Exists(mFile))
             {
                 using (var sr = new StreamReader(mFile))

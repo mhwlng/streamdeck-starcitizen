@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using BarRaider.SdTools;
 using Microsoft.Win32;
 using p4ktest;
 using TheUser = p4ktest.SC.TheUser;
@@ -185,6 +186,9 @@ namespace SCJMapper_V2.SC
                 //Logger.Instance.LogMessage(TracingLevel.DEBUG,"SCClientPath - StarCitizen\\LIVE or PTU subfolder does not exist: {0}", scp);
                 // Issue a warning here to let the user know
                 issue = string.Format("SCClientPath - StarCitizen\\LIVE or PTU subfolder does not exist: {0}", scp);
+
+                Logger.Instance.LogMessage(TracingLevel.ERROR, $"{issue}");
+
                 //"Cannot find the SC Client Directory !!\n\nTried to look for:\n{0} \n\nPlease adjust the path in Settings\n"
                 // Issue a warning here to let the user know
 

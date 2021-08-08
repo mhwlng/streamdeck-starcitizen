@@ -4,10 +4,6 @@
 
 TODO :
 
-* Test multiple language keyboards (only lightly tested 3.14 with US keyboard)
-
-* Add more logging to pluginlog.log
-
 * Allow switching between LIVE and PTU versions. (Currently gets binding only from LIVE installation)
 
 **Elgato Stream Deck button plugin for Star Citizen**
