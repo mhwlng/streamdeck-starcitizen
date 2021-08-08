@@ -44,7 +44,9 @@ When the plugin is first started, it finds and opens the game file :
 
 and extracts `defaultProfile.xml` and also english text resources. This could take more than 10 seconds.
 
-Compressed versions (files ending in .scj) are cached in the plugin directory and should be automatically refreshed, the next time Star Citizen is updated to a new version.
+The plugin should automatically find the actual path where Star Citizen was installed. 
+
+Compressed versions (files ending in .scj) are cached in the plugin directory and should be automatically refreshed, the next time Star Citizen is updated to a new version AND the plugin is also restarted.
 
 You can also delete the .scj files and restart the plugin, to extract the files from the p4k file again.
 
