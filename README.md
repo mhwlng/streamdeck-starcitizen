@@ -1,7 +1,5 @@
 # streamdeck-starcitizen
 
-**WORK IN PROGRESS**
-
 TODO :
 
 * Allow switching between LIVE and PTU versions. (Currently gets binding only from LIVE installation)
