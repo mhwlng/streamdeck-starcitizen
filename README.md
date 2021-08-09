@@ -56,8 +56,7 @@ The plugin uses all the active keyboard bindings from `defaultProfile.xml` and t
 
 `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\USER\Client\0\Profiles\default\actionmaps.xml`
 
-The `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\PropertyInspector\StarCitizen\Static.html` file 
-is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
+The `PropertyInspector\StarCitizen\Static.html` file is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
 that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
 
 The plugin installer is here: https://github.com/mhwlng/streamdeck-starcitizen/releases
