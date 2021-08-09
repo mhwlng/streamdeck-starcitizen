@@ -50,15 +50,15 @@ Compressed versions (files ending in .scj) are cached in the plugin directory an
 
 You can also delete the .scj files and restart the plugin, to extract the files from the p4k file again.
 
-For easier debugging, installation and testing, `defaultProfile.xml`, `dropdowntemplate.html` and `keybindings.csv` files are created in the plugin directory.
+For easier debugging, installation and testing, `defaultProfile.xml`, `keybindings.csv` and `PropertyInspector\StarCitizen\Static.html` files are created in the plugin directory.
 
 The plugin uses all the active keyboard bindings from `defaultProfile.xml` and then overrules some of the bindings, with any custom keyboard bindings from this file :
 
 `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\USER\Client\0\Profiles\default\actionmaps.xml`
 
-The `dropdowntemplate.html` can be used to reconfigure the `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\PropertyInspector\StarCitizen\Static.html` file.
-
-This may be needed, in case more custom keyboard bindings were added to `actionmaps.xml`, that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
+The `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\PropertyInspector\StarCitizen\Static.html` file 
+is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
+that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
 
 The plugin installer is here: https://github.com/mhwlng/streamdeck-starcitizen/releases
 

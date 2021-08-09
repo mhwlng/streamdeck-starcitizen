@@ -84,6 +84,8 @@ namespace starcitizen
 
         public static string profile;
 
+        public static string statictemplate;
+
         public static void HandleKeyBindingEvents(object sender, object evt)
         {
             Logger.Instance.LogMessage(TracingLevel.INFO, $"Reloading Key Bindings");
@@ -112,7 +114,7 @@ namespace starcitizen
 
             dpReader.Actions();
 
-            dpReader.CreateDropdownTemplate();
+            dpReader.CreateStaticHtml(statictemplate);
 
             dpReader.CreateCsv();
 
@@ -130,6 +132,8 @@ namespace starcitizen
             try
             {
                 SCFiles.Instance.UpdatePack(); // update game files
+
+                statictemplate = File.ReadAllText("statictemplate.html");
 
                 profile = SCDefaultProfile.DefaultProfile();
 

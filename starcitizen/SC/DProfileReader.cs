@@ -67,22 +67,22 @@ namespace SCJMapper_V2.SC
 
         private void ReadAction(XElement action, ActionMap actionMap)
         {
-            string name = (string) action.Attribute("name");
-            string uiLabel = (string) action.Attribute("UILabel");
+            string name = (string)action.Attribute("name");
+            string uiLabel = (string)action.Attribute("UILabel");
 
             if (string.IsNullOrEmpty(uiLabel))
                 return;
 
-            string uiDescription = (string) action.Attribute("UIDescription");
+            string uiDescription = (string)action.Attribute("UIDescription");
             //if (string.IsNullOrEmpty(uiDescription))
             //  uiDescription = name;
 
             uiLabel = SCUiText.Instance.Text(uiLabel, uiLabel);
             uiDescription = SCUiText.Instance.Text(uiDescription, "");
 
-            string keyboard = (string) action.Attribute("keyboard");
+            string keyboard = (string)action.Attribute("keyboard");
 
-            string activationMode = (string) action.Attribute("ActivationMode");
+            string activationMode = (string)action.Attribute("ActivationMode");
 
             ActivationMode currentActivationMode = null;
 
@@ -90,37 +90,37 @@ namespace SCJMapper_V2.SC
             {
                 currentActivationMode = activationmodes[activationMode];
 
-                string onPress = (string) action.Attribute("onPress");
+                string onPress = (string)action.Attribute("onPress");
                 if (!string.IsNullOrEmpty(onPress))
                 {
                     currentActivationMode.OnPress = onPress;
                 }
 
-                string onHold = (string) action.Attribute("onHold");
+                string onHold = (string)action.Attribute("onHold");
                 if (!string.IsNullOrEmpty(onHold))
                 {
                     currentActivationMode.OnHold = onHold;
                 }
 
-                string onRelease = (string) action.Attribute("onRelease");
+                string onRelease = (string)action.Attribute("onRelease");
                 if (!string.IsNullOrEmpty(onRelease))
                 {
                     currentActivationMode.OnRelease = onRelease;
                 }
 
-                string always = (string) action.Attribute("always");
+                string always = (string)action.Attribute("always");
                 if (!string.IsNullOrEmpty(always))
                 {
                     currentActivationMode.Always = always;
                 }
 
-                string noModifiers = (string) action.Attribute("noModifiers");
+                string noModifiers = (string)action.Attribute("noModifiers");
                 if (!string.IsNullOrEmpty(noModifiers))
                 {
                     currentActivationMode.NoModifiers = noModifiers;
                 }
 
-                string holdTriggerDelay = (string) action.Attribute("holdTriggerDelay");
+                string holdTriggerDelay = (string)action.Attribute("holdTriggerDelay");
                 if (!string.IsNullOrEmpty(holdTriggerDelay))
                 {
                     currentActivationMode.HoldTriggerDelay = holdTriggerDelay;
@@ -166,9 +166,9 @@ namespace SCJMapper_V2.SC
 
         private void ReadActionmap(XElement actionmap)
         {
-            string mapName = (string) actionmap.Attribute("name");
-            string uiLabel = (string) actionmap.Attribute("UILabel");
-            string uiCategory = (string) actionmap.Attribute("UICategory");
+            string mapName = (string)actionmap.Attribute("name");
+            string uiLabel = (string)actionmap.Attribute("UILabel");
+            string uiCategory = (string)actionmap.Attribute("UICategory");
 
             if (!maps.ContainsKey(mapName))
             {
@@ -198,14 +198,14 @@ namespace SCJMapper_V2.SC
                 IEnumerable<XElement> actions = actionmap.Elements().Where(x => x.Name == "action");
                 foreach (XElement action in actions)
                 {
-                    string actionName = (string) action.Attribute("name");
+                    string actionName = (string)action.Attribute("name");
 
                     if (map.Actions.ContainsKey(actionName))
                     {
                         XElement rebind = action.Elements().FirstOrDefault(x => x.Name == "rebind");
                         if (rebind != null)
                         {
-                            string input = (string) rebind.Attribute("input");
+                            string input = (string)rebind.Attribute("input");
                             if (input != null && input.StartsWith("kb"))
                             {
                                 input = input.Substring(input.IndexOf("_") + 1);
@@ -229,16 +229,16 @@ namespace SCJMapper_V2.SC
 
         private void ReadActivationMode(XElement actionmap)
         {
-            string name = (string) actionmap.Attribute("name");
-            string onPress = (string) actionmap.Attribute("onPress");
-            string onHold = (string) actionmap.Attribute("onHold");
-            string onRelease = (string) actionmap.Attribute("onRelease");
-            string multiTap = (string) actionmap.Attribute("multiTap");
-            string multiTapBlock = (string) actionmap.Attribute("multiTapBlock");
-            string pressTriggerThreshold = (string) actionmap.Attribute("pressTriggerThreshold");
-            string releaseTriggerThreshold = (string) actionmap.Attribute("releaseTriggerThreshold");
-            string releaseTriggerDelay = (string) actionmap.Attribute("releaseTriggerDelay");
-            string retriggerable = (string) actionmap.Attribute("retriggerable");
+            string name = (string)actionmap.Attribute("name");
+            string onPress = (string)actionmap.Attribute("onPress");
+            string onHold = (string)actionmap.Attribute("onHold");
+            string onRelease = (string)actionmap.Attribute("onRelease");
+            string multiTap = (string)actionmap.Attribute("multiTap");
+            string multiTapBlock = (string)actionmap.Attribute("multiTapBlock");
+            string pressTriggerThreshold = (string)actionmap.Attribute("pressTriggerThreshold");
+            string releaseTriggerThreshold = (string)actionmap.Attribute("releaseTriggerThreshold");
+            string releaseTriggerDelay = (string)actionmap.Attribute("releaseTriggerDelay");
+            string retriggerable = (string)actionmap.Attribute("retriggerable");
 
             var m_currenActivationMode = new ActivationMode()
             {
@@ -277,7 +277,7 @@ namespace SCJMapper_V2.SC
                     IEnumerable<XElement> actionProfiles = el.Elements().Where(x => x.Name == "ActionProfiles");
                     foreach (XElement actionProfile in actionProfiles)
                     {
-                        string profileName = (string) actionProfile.Attribute("profileName");
+                        string profileName = (string)actionProfile.Attribute("profileName");
 
                         if (profileName == "default")
                         {
@@ -415,11 +415,11 @@ namespace SCJMapper_V2.SC
         }
 
 
-        public void CreateDropdownTemplate()
+        public void CreateStaticHtml(string statictemplate)
         {
-            using (StreamWriter outputFile =
-                new StreamWriter(Path.Combine(TheUser.FileStoreDir, "dropdowntemplate.html")))
+            try
             {
+                var dropdownHtml = new StringBuilder();
 
                 var mapsList =
                     actions
@@ -432,7 +432,7 @@ namespace SCJMapper_V2.SC
                 foreach (var map in mapsList)
                 {
                     var options = actions
-                        .Where(x => x.Value.MapUILabel== map && !string.IsNullOrWhiteSpace(x.Value.Keyboard))
+                        .Where(x => x.Value.MapUILabel == map && !string.IsNullOrWhiteSpace(x.Value.Keyboard))
                         .OrderBy(x => x.Value.MapUICategory)
                         .ThenBy(x => x.Value.MapUILabel)
                         .ThenBy(x => x.Value.UILabel);
@@ -441,21 +441,28 @@ namespace SCJMapper_V2.SC
                     {
                         var htmlline = $"<optgroup label=\"{map}\">";
 
-                        outputFile.WriteLine(htmlline);
+                        dropdownHtml.AppendLine(htmlline);
 
                         foreach (var action in options)
                         {
                             htmlline = $"   <option value=\"{action.Value.Name}\">{action.Value.UILabel}</option>";
 
-                            outputFile.WriteLine(htmlline);
+                            dropdownHtml.AppendLine(htmlline);
                         }
 
                         htmlline = $"</optgroup>";
 
-                        outputFile.WriteLine(htmlline);
+                        dropdownHtml.AppendLine(htmlline);
                     }
 
                 }
+
+                File.WriteAllText(Path.Combine(@"PropertyInspector\StarCitizen", "Static.html"),
+                    statictemplate.Replace("[DROPDOWN]", dropdownHtml.ToString()));
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, $"CreateStaticHtml {ex}");
             }
 
         }
