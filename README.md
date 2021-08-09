@@ -6,15 +6,17 @@ TODO :
 
 **Elgato Stream Deck button plugin for Star Citizen**
 
-![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/SgsPN2d.png)
+![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/FSHsXRG.png)
 
 This plugin gets the key bindings from the Star Citizen game files.
 
 The bindings in the streamdeck plugin are automatically updated when changing bindings in Star Citizen options screen.
 
+The key is shown in the dropdown, localised for the current keyboard language (So: US keyboard shows WSAD, French keyboard shows ZSQD)
+
 **The plugin does not contain any button images or ready made streamdeck profiles.**
 
-Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the defaultProfile.xml from the pk4 file etc.
+Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the defaultProfile.xml from the p4k file etc.
 
 The button works in a similar way, to the streamdeck 'Hotkey' button type.
 So, there is only one image and there is no game state feedback for these buttons.

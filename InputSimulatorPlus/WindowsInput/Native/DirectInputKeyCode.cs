@@ -3,6 +3,13 @@
     /// <summary>
     /// The list of DirectInput keyboard scan codes from dinput.h in dxsdk
     /// </summary>
+    ///
+    /// FIRST ROW  DIKGRAVE          DIKMINUS        DIKEQUALS
+    /// SECOND ROW DIKLBRACKET       DIKRBRACKET     DIKBACKSLASH
+    /// THIRD ROW  DIKSEMICOLON      DIKAPOSTROPHE
+    /// FOURTH ROW DIKCOMMA          DIKPERIOD       DIKSLASH
+
+    /// 
     public enum DirectInputKeyCode
     {
         /// <summary>
@@ -60,7 +67,7 @@
         /// <summary>
         /// Backspace key
         /// </summary>
-        DikBack = 0x0E,
+        DikBackspace = 0x0E,
         /// <summary>
         /// Tab key
         /// </summary>
@@ -228,7 +235,7 @@
         /// <summary>
         /// Left alt key
         /// </summary>
-        DikLmenu = 0x38,
+        DikLalt = 0x38,
         /// <summary>
         /// ' ' key
         /// </summary>
@@ -560,7 +567,7 @@
         /// <summary>
         /// Right alt key
         /// </summary>
-        DikRmenu = 0xB8,
+        DikRalt = 0xB8,
         /// <summary>
         /// Pause key
         /// </summary>
@@ -576,7 +583,7 @@
         /// <summary>
         /// PageUp key on arrow keypad
         /// </summary>
-        DikPrior = 0xC9,
+        DikPageUp = 0xC9,
         /// <summary>
         /// Left arrow key on arrow keypad
         /// </summary>
@@ -596,7 +603,7 @@
         /// <summary>
         /// PageDown key on arrow keypad
         /// </summary>
-        DikNext = 0xD1,
+        DikPageDown = 0xD1,
         /// <summary>
         /// Insert key on arrow keypad
         /// </summary>
@@ -665,173 +672,6 @@
         /// Media select
         /// </summary>
         DikMediaselect = 0xED,
-        /// <summary>
-        /// PageUp key on arrow keypad
-        /// </summary>
-        DikPageUp = DikPrior,
-        /// <summary>
-        /// PageDown key on arrow keypad
-        /// </summary>
-        DikPageDown = DikNext,
-        /// <summary>
-        /// Backspace key
-        /// </summary>
-        DikBackspace = DikBack,
-        /// <summary>
-        /// '*' key on numeric keypad
-        /// </summary>
-        DikNumpadStar = DikMultiply,
-        /// <summary>
-        /// Left alt key
-        /// </summary>
-        DikLalt = DikLmenu,
-        /// <summary>
-        /// Caps lock key
-        /// </summary>
-        DikCapslock = DikCapital,
-        /// <summary>
-        /// '-' key on numeric keypad
-        /// </summary>
-        DikNumpadMinus = DikSubtract,
-        /// <summary>
-        /// '+' key on numeric keypad
-        /// </summary>
-        DikNumpadPlus = DikAdd,
-        /// <summary>
-        /// '.' key on numeric keypad
-        /// </summary>
-        DikNumpadPeriod = DikDecimal,
-        /// <summary>
-        /// '/' key on numeric keypad
-        /// </summary>
-        DikNumpadSlash = DikDivide,
-        /// <summary>
-        /// Right alt key
-        /// </summary>
-        DikRalt = DikRmenu,
-        /// <summary>
-        /// Up arrow key on arrow keypad
-        /// </summary>
-        DikUparrow = DikUp,
-        /// <summary>
-        /// PageUp key on arrow keypad
-        /// </summary>
-        DikPgup = DikPrior,
-        /// <summary>
-        /// Left arrow key on arrow keypad
-        /// </summary>
-        DikLeftarrow = DikLeft,
-        /// <summary>
-        /// Right arrow key on arrow keypad
-        /// </summary>
-        DikRightarrow = DikRight,
-        /// <summary>
-        /// Down arrow key on arrow keypad
-        /// </summary>
-        DikDownarrow = DikDown,
-        /// <summary>
-        /// PageDown key on arrow keypad
-        /// </summary>
-        DikPgdn = DikNext,
-
-        /// <summary>
-        /// </summary>
-        DikEnter = DikReturn,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Equals = DikNumpadequals,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Enter = DikNumpadenter,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Comma = DikNumpadcomma,
-
-        /// <summary>
-        /// </summary>
-        DikNumpad_Divide = DikNumpadSlash,
-        /// <summary>
-        /// </summary>
-        DikNumpadDivide = DikNumpadSlash,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Multiply = DikNumpadStar,
-        /// <summary>
-        /// </summary>
-        DikNumpadMultiply = DikNumpadStar,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Subtract = DikNumpadMinus,
-        /// <summary>
-        /// </summary>
-        DikNumpadSubtract = DikNumpadMinus,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Decimal = DikNumpadPeriod,
-        /// <summary>
-        /// </summary>
-        DikNumpadDecimal = DikNumpadPeriod,
-        /// <summary>
-        /// </summary>
-        DikNumpad_Add = DikNumpadPlus,
-        /// <summary>
-        /// </summary>
-        DikNumpadAdd = DikNumpadPlus,
-        /// <summary>
-        /// </summary>
-        DikNumpad_7 = DikNumpad7,
-        /// <summary>
-        /// </summary>
-        DikNumpad_8 = DikNumpad8,
-        /// <summary>
-        /// </summary>
-        DikNumpad_9 = DikNumpad9,
-        /// <summary>
-        /// </summary>
-        DikNumpad_4 = DikNumpad4,
-        /// <summary>
-        /// </summary>
-        DikNumpad_5 = DikNumpad5,
-        /// <summary>
-        /// </summary>
-        DikNumpad_6 = DikNumpad6,
-        /// <summary>
-        /// </summary>
-        DikNumpad_1 = DikNumpad1,
-        /// <summary>
-        /// </summary>
-        DikNumpad_2 = DikNumpad2,
-        /// <summary>
-        /// </summary>
-        DikNumpad_3 = DikNumpad3,
-        /// <summary>
-        /// </summary>
-        DikNumpad_0 = DikNumpad0,
-        /// <summary>
-        /// </summary>
-        DikLeftBracket = DikLbracket,
-        /// <summary>
-        /// </summary>
-        DikRightBracket = DikRbracket,
-
-        /// <summary>
-        /// </summary>
-        DikLeftAlt = DikLmenu,
-        /// <summary>
-        /// </summary>
-        DikRightAlt = DikRmenu,
-        /// <summary>
-        /// </summary>
-        DikRightControl = DikRcontrol,
-        /// <summary>
-        /// </summary>
-        DikLeftControl = DikLcontrol,
-        /// <summary>
-        /// </summary>
-        DikRightShift = DikRshift,
-        /// <summary>
-        /// </summary>
-        DikLeftShift = DikLshift
 
 
         /*

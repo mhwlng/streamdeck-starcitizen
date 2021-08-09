@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Xml.Linq;
 using BarRaider.SdTools;
 using p4ktest;
 using p4ktest.SC;
+using starcitizen;
 using Action = System.Action;
 
 namespace SCJMapper_V2.SC
@@ -419,6 +421,21 @@ namespace SCJMapper_V2.SC
         {
             try
             {
+                var keyboard = KeyboardLayouts.GetThreadKeyboardLayout();
+
+                CultureInfo culture;
+
+                try
+                {
+                    culture = new CultureInfo(keyboard.KeyboardId);
+                }
+                catch
+                {
+                    culture = new CultureInfo("en-US");
+                }
+
+                Logger.Instance.LogMessage(TracingLevel.INFO, $"Keyboard Detected, language : {keyboard.LanguageId:X} keyboard : {keyboard.KeyboardId:X} culture : {culture.Name}");
+
                 var dropdownHtml = new StringBuilder();
 
                 var mapsList =
@@ -445,7 +462,11 @@ namespace SCJMapper_V2.SC
 
                         foreach (var action in options)
                         {
-                            htmlline = $"   <option value=\"{action.Value.Name}\">{action.Value.UILabel}</option>";
+                            var keyString = CommandTools.ConvertKeyStringToLocale(action.Value.Keyboard, culture.Name);
+
+                            var key = keyString.Replace("Dik","").Replace("}{","+").Replace("}", "").Replace("{", "");
+
+                            htmlline = $"   <option value=\"{action.Value.Name}\">{action.Value.UILabel} [{key}]</option>";
 
                             dropdownHtml.AppendLine(htmlline);
                         }
