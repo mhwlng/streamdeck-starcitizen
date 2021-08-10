@@ -162,7 +162,14 @@ namespace SCJMapper_V2.SC
         {
             actions = maps
                 .SelectMany(x => x.Value.Actions)
-                .Where(x => !string.IsNullOrWhiteSpace(x.Value.Keyboard))
+                .Where(x => !string.IsNullOrWhiteSpace(x.Value.Keyboard) &&
+                            x.Value.Keyboard != "lalt" &&
+                            x.Value.Keyboard != "ralt" &&
+                            x.Value.Keyboard != "lshift" &&
+                            x.Value.Keyboard != "rshift" &&
+                            x.Value.Keyboard != "lctrl" &&
+                            x.Value.Keyboard != "rctrl"
+                            )
                 .ToDictionary(x => x.Value.Name, x => x.Value);
         }
 

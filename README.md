@@ -1,9 +1,5 @@
 # streamdeck-starcitizen
 
-TODO :
-
-* Allow switching between LIVE and PTU versions. (Currently gets binding only from LIVE installation)
-
 **Elgato Stream Deck button plugin for Star Citizen**
 
 ![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/FSHsXRG.png)
@@ -12,7 +8,7 @@ This plugin gets the key bindings from the Star Citizen game files.
 
 The bindings in the streamdeck plugin are automatically updated when changing bindings in Star Citizen options screen.
 
-The key is shown in the dropdown, localised for the current keyboard language (So: US keyboard shows WSAD, French keyboard shows ZSQD)
+The bound key is shown in the dropdown, localised for the current keyboard language (So: US keyboard shows WSAD, French keyboard shows ZSQD)
 
 **The plugin does not contain any button images or ready made streamdeck profiles.**
 
@@ -47,6 +43,18 @@ When the plugin is first started, it finds and opens the game file :
 and extracts `defaultProfile.xml` and also english text resources. This could take more than 10 seconds.
 
 **The plugin should automatically find the actual path where Star Citizen was installed.**
+
+The path, that is found by the plugin, is logged in the `pluginlog.log` file.
+
+If the path is incorrect, then the appsettings.config file can be adjusted with the correct paths to the p4k file and actionmaps.xml directory :
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <add key="SCData_p4k" value ="C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\Data.p4k" />
+  <add key="SCClientProfilePath" value ="C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\USER\Client\0\Profiles\default" />
+</appSettings>
+```
 
 Compressed versions (files ending in .scj) are cached in the plugin directory and should be automatically refreshed, the next time Star Citizen is updated to a new version AND the plugin is also restarted.
 

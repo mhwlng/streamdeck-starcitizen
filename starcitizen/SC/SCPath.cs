@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.IO;
@@ -101,7 +103,7 @@ namespace SCJMapper_V2.SC
             {
                 //Logger.Instance.LogMessage(TracingLevel.DEBUG,"SCBasePath - Entry");
 
-                string scp = "";
+                        string scp = "";
 
                 // start the registry search - sequence  5..1 to get the newest method first
 
@@ -231,6 +233,15 @@ namespace SCJMapper_V2.SC
         {
             get
             {
+                if (File.Exists("appSettings.config") &&
+                    ConfigurationManager.GetSection("appSettings") is NameValueCollection appSection)
+                {
+                    if ((!string.IsNullOrEmpty(appSection["SCClientProfilePath"]) && !string.IsNullOrEmpty(Path.GetDirectoryName(appSection["SCClientProfilePath"]))))
+                    {
+                        return appSection["SCClientProfilePath"];
+                    }
+                }
+
                 //Logger.Instance.LogMessage(TracingLevel.DEBUG,"SCClientProfilePath - Entry");
                 string scp = SCClientUSERPath; 
                 if (string.IsNullOrEmpty(scp)) return "";
@@ -254,6 +265,15 @@ namespace SCJMapper_V2.SC
         {
             get
             {
+                if (File.Exists("appSettings.config") &&
+                    ConfigurationManager.GetSection("appSettings") is NameValueCollection appSection)
+                {
+                    if ((!string.IsNullOrEmpty(appSection["SCData_p4k"]) && File.Exists(appSection["SCData_p4k"])))
+                    {
+                        return appSection["SCData_p4k"];
+                    }
+                }
+
                 //Logger.Instance.LogMessage(TracingLevel.DEBUG,"SCDataXML_p4k - Entry");
                 string scp = SCClientPath;
                 if (string.IsNullOrEmpty(scp)) return "";
