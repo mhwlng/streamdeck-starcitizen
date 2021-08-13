@@ -12,7 +12,7 @@ The bound key is shown in the dropdown, localised for the current keyboard langu
 
 **The plugin does not contain any button images or ready made streamdeck profiles.**
 
-Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the defaultProfile.xml from the p4k file etc.
+Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the `defaultProfile.xml` from the p4k file etc.
 
 The button works in a similar way, to the streamdeck 'Hotkey' button type.
 So, there is only one image and there is no game state feedback for these buttons.
@@ -28,7 +28,9 @@ The buttons can also be used with multi-action buttons.
 
 After you install the plugin in the streamdeck software, then there will be a new button type in the streamdeck software.
 
-Choose a button in the streamdeck software (drag and drop), then choose a Star Citizen function for that button (that must have a keyboard binding in Star Citizen!) and then choose any picture for that button.
+Choose a button in the streamdeck software (drag and drop), then choose a Star Citizen function for that button 
+(that must have a keyboard binding in Star Citizen. **A mouse, gamepad or joystick binding won't work!**) 
+and then choose any picture for that button.
 
 Add an image to a button in this way:
 
@@ -46,7 +48,7 @@ and extracts `defaultProfile.xml` and also english text resources. This could ta
 
 The path, that is found by the plugin, is logged in the `pluginlog.log` file.
 
-If the path is incorrect, then the appsettings.config file can be adjusted with the correct paths to the p4k file and actionmaps.xml directory :
+If the path is incorrect, then the `appsettings.config` file can be adjusted with the correct paths to the p4k file and the actionmaps.xml directory :
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -60,7 +62,7 @@ Compressed versions (files ending in .scj) are cached in the plugin directory an
 
 You can also delete the .scj files and restart the plugin, to extract the files from the p4k file again.
 
-For easier debugging, installation and testing, `defaultProfile.xml`, `keybindings.csv` and `PropertyInspector\StarCitizen\Static.html` files are created in the plugin directory.
+For easier debugging, installation and testing, `defaultProfile.xml`, `keybindings.csv`, `joystickbindings.csv`, `mousebindings.csv`, `unboundactions.csv` and `PropertyInspector\StarCitizen\Static.html` files are created in the plugin directory.
 
 The plugin uses all the active keyboard bindings from `defaultProfile.xml` and then overrules some of the bindings, with any custom keyboard bindings from this file :
 

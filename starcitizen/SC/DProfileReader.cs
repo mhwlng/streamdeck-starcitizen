@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using BarRaider.SdTools;
 using p4ktest;
 using p4ktest.SC;
 using starcitizen;
+using WindowsInput;
 using Action = System.Action;
 
 namespace SCJMapper_V2.SC
@@ -50,6 +52,14 @@ namespace SCJMapper_V2.SC
 
             public string Keyboard { get; set; }
 
+            public string Mouse { get; set; }
+            public string Joystick { get; set; }
+            public string Gamepad { get; set; }
+
+            public bool KeyboardOverRule { get; set; }
+            public string JoystickOverRule { get; set; }
+            public bool MouseOverRule { get; set; }
+
             public ActivationMode ActivationMode { get; set; }
         };
 
@@ -67,6 +77,8 @@ namespace SCJMapper_V2.SC
         private Dictionary<string, Action> actions = new Dictionary<string, Action>();
         private Dictionary<string, ActivationMode> activationmodes = new Dictionary<string, ActivationMode>();
 
+        private Dictionary<string, string> joysticks = new Dictionary<string, string>();
+
         private void ReadAction(XElement action, ActionMap actionMap)
         {
             string name = (string)action.Attribute("name");
@@ -83,6 +95,12 @@ namespace SCJMapper_V2.SC
             uiDescription = SCUiText.Instance.Text(uiDescription, "");
 
             string keyboard = (string)action.Attribute("keyboard");
+
+            string mouse = (string)action.Attribute("mouse");
+
+            string joystick = (string)action.Attribute("joystick");
+
+            string gamepad = (string)action.Attribute("gamepad");
 
             string activationMode = (string)action.Attribute("ActivationMode");
 
@@ -151,7 +169,11 @@ namespace SCJMapper_V2.SC
                 UILabel = uiLabel,
                 UIDescription = uiDescription,
                 ActivationMode = currentActivationMode,
-                Keyboard = keyboard
+                Keyboard = keyboard,
+        
+                Mouse  = mouse,
+                Joystick = joystick,
+                Gamepad = gamepad
             };
 
             if (!actionMap.Actions.ContainsKey(name))
@@ -217,11 +239,45 @@ namespace SCJMapper_V2.SC
                             string input = (string)rebind.Attribute("input");
                             if (input != null && input.StartsWith("kb"))
                             {
-                                input = input.Substring(input.IndexOf("_") + 1);
+                                input = input.Substring(input.IndexOf("_", StringComparison.Ordinal) + 1).Trim();
 
-                                map.Actions[actionName].Keyboard = input;
+                                if (!string.IsNullOrEmpty(input))
+                                {
+                                    map.Actions[actionName].Keyboard = input;
+                                    map.Actions[actionName].KeyboardOverRule = true;
+                                }
 
+                            } else
+                            if (input != null && input.StartsWith("js"))
+                            {
+                                var instance = input.Substring(2, input.IndexOf("_", StringComparison.Ordinal)-2);
+
+                                input = input.Substring(input.IndexOf("_", StringComparison.Ordinal) + 1).Trim();
+
+                                if (!string.IsNullOrEmpty(input))
+                                {
+                                    map.Actions[actionName].Joystick = input;
+
+                                    if (joysticks.ContainsKey(instance))
+                                    {
+                                        instance = joysticks[instance];
+                                    }
+
+                                    map.Actions[actionName].JoystickOverRule = instance;
+                                }
                             }
+                            else
+                            if (input != null && input.StartsWith("mo"))
+                            {
+                                input = input.Substring(input.IndexOf("_", StringComparison.Ordinal) + 1).Trim();
+
+                                if (!string.IsNullOrEmpty(input))
+                                {
+                                    map.Actions[actionName].Mouse = input;
+                                    map.Actions[actionName].MouseOverRule = true;
+                                }
+                            }
+
                         }
                     }
                     else
@@ -344,6 +400,22 @@ namespace SCJMapper_V2.SC
                     }
                     */
 
+                    IEnumerable<XElement> options = el.Elements().Where(x => x.Name == "options");
+
+                    foreach (XElement option in options)
+                    {
+                        string type = (string)option.Attribute("type");
+
+                        string instance = (string)option.Attribute("instance");
+
+                        string product = (string)option.Attribute("Product");
+
+                        if (type == "joystick")
+                        {
+                            joysticks.Add(instance,product);
+                        }
+                    }
+
                     IEnumerable<XElement> actionmaps = el.Elements().Where(x => x.Name == "actionmap");
 
                     foreach (XElement actionmap in actionmaps)
@@ -375,7 +447,7 @@ namespace SCJMapper_V2.SC
                     outputFile.WriteLine("sep=\t");
                     var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
 
-                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Keyboard" + "\t";
+                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Keyboard" + "\t" + "Overrule" + "\t";
 
                     headerline += "Name" + "\t" +
                                   "OnPress" + "\t" +
@@ -398,7 +470,7 @@ namespace SCJMapper_V2.SC
                                       action.Value.MapName + "\t";
 
                         csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name +
-                                   "\t" + action.Value.Keyboard + "\t";
+                                   "\t" + action.Value.Keyboard + "\t" + (action.Value.KeyboardOverRule ? "YES" : "") + "\t";
 
                         csvline += action.Value.ActivationMode?.Name + "\t" +
                                    action.Value.ActivationMode?.OnPress + "\t" +
@@ -415,6 +487,99 @@ namespace SCJMapper_V2.SC
                         outputFile.WriteLine(csvline);
                     }
                 }
+
+                using (StreamWriter outputFile =
+                    new StreamWriter(Path.Combine(TheUser.FileStoreDir, "mousebindings.csv")))
+                {
+                    outputFile.WriteLine("sep=\t");
+                    var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
+
+                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Mouse" + "\t" + "Overrule" + "\t";
+
+                    outputFile.WriteLine(headerline);
+
+                    var unboundActions = maps
+                        .SelectMany(x => x.Value.Actions)
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Value.Mouse)
+                        )
+                        .ToDictionary(x => x.Value.Name, x => x.Value);
+
+
+                    foreach (var action in unboundActions.OrderBy(x => x.Value.MapUILabel)
+                        .ThenBy(x => x.Value.UILabel))
+                    {
+                        var csvline = action.Value.MapUICategory + "\t" + action.Value.MapUILabel + "\t" +
+                                      action.Value.MapName + "\t";
+
+                        csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name +
+                                   "\t" + action.Value.Mouse + "\t" + (action.Value.MouseOverRule ? "YES" : "") + "\t";
+
+
+                        outputFile.WriteLine(csvline);
+                    }
+                }
+
+                using (StreamWriter outputFile =
+                    new StreamWriter(Path.Combine(TheUser.FileStoreDir, "joystickbindings.csv")))
+                {
+                    outputFile.WriteLine("sep=\t");
+                    var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
+
+                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" + "\t" + "Joystick" + "\t" + "Overrule" + "\t";
+
+                    outputFile.WriteLine(headerline);
+
+                    var unboundActions = maps
+                        .SelectMany(x => x.Value.Actions)
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Value.Joystick) 
+                        )
+                        .ToDictionary(x => x.Value.Name, x => x.Value);
+
+
+                    foreach (var action in unboundActions.OrderBy(x => x.Value.MapUILabel)
+                        .ThenBy(x => x.Value.UILabel))
+                    {
+                        var csvline = action.Value.MapUICategory + "\t" + action.Value.MapUILabel + "\t" +
+                                      action.Value.MapName + "\t";
+
+                        csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name +
+                        "\t" + action.Value.Joystick + "\t" + action.Value.JoystickOverRule  + "\t";
+
+                        outputFile.WriteLine(csvline);
+                    }
+                }
+                using (StreamWriter outputFile =
+                    new StreamWriter(Path.Combine(TheUser.FileStoreDir, "unboundactions.csv")))
+                {
+                    outputFile.WriteLine("sep=\t");
+                    var headerline = "map_UICategory" + "\t" + "map_UILabel" + "\t" + "map_Name" + "\t";
+
+                    headerline += "UILabel" + "\t" + "UIDescription" + "\t" + "Name" ;
+
+                    outputFile.WriteLine(headerline);
+
+                    var unboundActions = maps
+                        .SelectMany(x => x.Value.Actions)
+                        .Where(x => string.IsNullOrWhiteSpace(x.Value.Keyboard) &&
+                                                        string.IsNullOrWhiteSpace(x.Value.Mouse) &&
+                                                        string.IsNullOrWhiteSpace(x.Value.Joystick) //&&
+                                                        //string.IsNullOrWhiteSpace(x.Value.Gamepad)
+                        )
+                        .ToDictionary(x => x.Value.Name, x => x.Value);
+
+
+                    foreach (var action in unboundActions.OrderBy(x => x.Value.MapUILabel)
+                        .ThenBy(x => x.Value.UILabel))
+                    {
+                        var csvline = action.Value.MapUICategory + "\t" + action.Value.MapUILabel + "\t" +
+                                      action.Value.MapName + "\t";
+
+                        csvline += action.Value.UILabel + "\t" + action.Value.UIDescription + "\t" + action.Value.Name ;
+
+                        outputFile.WriteLine(csvline);
+                    }
+                }
+
             }
 
             catch (Exception ex)
