@@ -26,6 +26,12 @@ A sound can be played when pressing a button.
 
 The buttons can also be used with multi-action buttons.
 
+You can, for example, use the 'multi-action switch' function, that is built into the streamdeck software, to set up a toggle function.
+You can add the relevant function of this plugin to both the ON-and OFF-action of the 'multi-action switch' function.
+You can then set up different images for each toggle state.
+The disadvantage is: that if you would press e.g. the gear up/down toggle button while the ship is still on the ground/powered off, 
+then the button image would be out of sync.
+
 After you install the plugin in the streamdeck software, then there will be a new button type in the streamdeck software.
 
 Choose a button in the streamdeck software (drag and drop), then choose a Star Citizen function for that button 
