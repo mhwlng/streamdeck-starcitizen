@@ -77,6 +77,8 @@ The plugin uses all the active keyboard bindings from `defaultProfile.xml` and t
 The `PropertyInspector\StarCitizen\Static.html` file is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
 that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
 
+If nothing happens, when pressing streamdeck buttons: you could try to start streamdeck.exe as administrator.
+
 The plugin installer is here: https://github.com/mhwlng/streamdeck-starcitizen/releases
 
 To install the plugin, double click the file `com.mhwlng.starcitizen.streamDeckPlugin` which should install the plugin.
