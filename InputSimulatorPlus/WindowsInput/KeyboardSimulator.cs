@@ -311,11 +311,11 @@ namespace WindowsInput
         /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
         public IKeyboardSimulator DelayedKeyPress(DirectInputKeyCode dikCode, int delay)
         {
-            DelayedKeyPressDown(dikCode, delay);
+            DelayedKeyPressDown(dikCode);
 
             Thread.Sleep(delay);
 
-            DelayedKeyPressUp(dikCode, delay);
+            DelayedKeyPressUp(dikCode);
 
             return this;
         }
@@ -324,8 +324,7 @@ namespace WindowsInput
         /// Calls the Win32 SendInput method with a KeyDown message
         /// </summary>
         /// <param name="dikCode">The <see cref="DirectInputKeyCode"/> to press</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
-        public IKeyboardSimulator DelayedKeyPressDown(DirectInputKeyCode dikCode, int delay)
+        public IKeyboardSimulator DelayedKeyPressDown(DirectInputKeyCode dikCode)
         {
             var inputList1 = new InputBuilder().AddKeyDown(dikCode).ToArray();
             SendSimulatedInput(inputList1);
@@ -337,8 +336,7 @@ namespace WindowsInput
         /// Calls the Win32 SendInput method with a KeyUp message
         /// </summary>
         /// <param name="dikCode">The <see cref="DirectInputKeyCode"/> to press</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
-        public IKeyboardSimulator DelayedKeyPressUp(DirectInputKeyCode dikCode, int delay)
+        public IKeyboardSimulator DelayedKeyPressUp(DirectInputKeyCode dikCode)
         {
             var inputList2 = new InputBuilder().AddKeyUp(dikCode).ToArray();
             SendSimulatedInput(inputList2);
@@ -407,11 +405,11 @@ namespace WindowsInput
         /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
         public IKeyboardSimulator DelayedModifiedKeyStroke(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode, int delay)
         {
-            DelayedModifiedKeyStrokeDown(modifierDikCodes, dikCode, delay);
+            ModifiedKeyStrokeDown(modifierDikCodes, dikCode);
 
             Thread.Sleep(delay);
 
-            DelayedModifiedKeyStrokeUp(modifierDikCodes, dikCode, delay);
+            ModifiedKeyStrokeUp(modifierDikCodes, dikCode);
 
             return this;
         }
@@ -422,8 +420,7 @@ namespace WindowsInput
         /// </summary>
         /// <param name="modifierDikCodes">The list of modifier keys</param>
         /// <param name="dikCode">The list of keys to simulate</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
-        public IKeyboardSimulator DelayedModifiedKeyStrokeDown(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode, int delay)
+        public IKeyboardSimulator ModifiedKeyStrokeDown(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode)
         {
             foreach (var keyCode in modifierDikCodes)
             {
@@ -442,8 +439,7 @@ namespace WindowsInput
         /// </summary>
         /// <param name="modifierDikCodes">The list of modifier keys</param>
         /// <param name="dikCode">The list of keys to simulate</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode. 50ms should be minimum</param>
-        public IKeyboardSimulator DelayedModifiedKeyStrokeUp(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode, int delay)
+        public IKeyboardSimulator ModifiedKeyStrokeUp(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode)
         {
             KeyUp(dikCode);
 

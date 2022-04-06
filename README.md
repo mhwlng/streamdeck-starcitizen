@@ -14,17 +14,23 @@ The bound key is shown in the dropdown, localised for the current keyboard langu
 
 Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the `defaultProfile.xml` from the p4k file etc.
 
-The button works in a similar way, to the streamdeck 'Hotkey' button type.
+The static button works in a similar way, to the streamdeck 'Hotkey' button type.
 So, there is only one image and there is no game state feedback for these buttons.
 The differences with the 'Hotkey' buttons are, that it gets the keyboard binding from the game.
 When the stream deck button is pushed, the 'key down' event is sent to the keyboard
 and only after the stream deck button is released, the 'key up' event is sent to the keyboard.
 
+The plugin's multi-action button behaviour is different : when the stream deck button is pushed, the 'key down' event is sent to the keyboard.
+After a user-definable delay (default = 40 ms) the 'key up' event is sent to the keyboard. 
+Nothing happens when the streamdeck button is released.
+
+Both the static- and multi-action buttons can be used inside the streamdeck built-in multi-action button's action list.
+
+The multi-action button can also be used as a regular streamdeck button, in case a fixed user-definable delay is required between the key down and key up events.
+
 A sound can be played when pressing a button.
 
 **You can clear the sound path, by clicking on the label in front of the file picker edit box.**
-
-The buttons can also be used with multi-action buttons.
 
 You can, for example, use the 'multi-action switch' function, that is built into the streamdeck software, to set up a toggle function.
 You can add the relevant function of this plugin to both the ON-and OFF-action of the 'multi-action switch' function.
@@ -74,7 +80,7 @@ The plugin uses all the active keyboard bindings from `defaultProfile.xml` and t
 
 `C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\USER\Client\0\Profiles\default\actionmaps.xml`
 
-The `PropertyInspector\StarCitizen\Static.html` file is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
+The `PropertyInspector\StarCitizen\Static.html` and `PropertyInspector\StarCitizen\Macro.html` file is dynamically updated, in case more custom keyboard bindings were added to `actionmaps.xml`, 
 that didn't have any corresponding keyboard bindings in `defaultProfile.xml`.
 
 If nothing happens, when pressing streamdeck buttons: you could try to start streamdeck.exe as administrator.

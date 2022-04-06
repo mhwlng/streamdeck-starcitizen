@@ -51,6 +51,19 @@ namespace starcitizen.Buttons
 
         public override void ReceivedGlobalSettings(ReceivedGlobalSettingsPayload payload) { }
 
+        private void SendInput(string inputText, int delay)
+        {
+            var text = inputText;
+
+            for (var idx = 0; idx < text.Length && !ForceStop; idx++)
+            {
+                var macro = CommandTools.ExtractMacro(text, idx);
+                idx += macro.Length - 1;
+                macro = macro.Substring(1, macro.Length - 2);
+
+                HandleMacro(macro, delay);
+            }
+        }
         private void SendInputDown(string inputText)
         {
             var text = inputText;
@@ -79,6 +92,33 @@ namespace starcitizen.Buttons
             }
         }
 
+        public static void HandleMacro(string macro, int delay)
+        {
+            var keyStrokes = CommandTools.ExtractKeyStrokes(macro);
+
+            // Actually initiate the keystrokes
+            if (keyStrokes.Count > 0)
+            {
+                var iis = new InputSimulator();
+                var keyCode = keyStrokes.Last();
+                keyStrokes.Remove(keyCode);
+
+                if (keyStrokes.Count > 0)
+                {
+                    //iis.Keyboard.ModifiedKeyStroke(keyStrokes.Select(ks => ks).ToArray(), keyCode);
+
+                    iis.Keyboard.DelayedModifiedKeyStroke(keyStrokes.Select(ks => ks), keyCode, delay);
+
+                }
+                else // Single Keycode
+                {
+                    //iis.Keyboard.KeyPress(keyCode);
+
+                    iis.Keyboard.DelayedKeyPress(keyCode, delay);
+                }
+            }
+        }
+
         private void HandleMacroDown(string macro)
         {
             var keyStrokes = CommandTools.ExtractKeyStrokes(macro);
@@ -92,12 +132,12 @@ namespace starcitizen.Buttons
 
                 if (keyStrokes.Count > 0)
                 {
-                    iis.Keyboard.DelayedModifiedKeyStrokeDown(keyStrokes.Select(ks => ks), keyCode, 40);
+                    iis.Keyboard.ModifiedKeyStrokeDown(keyStrokes.Select(ks => ks), keyCode);
 
                 }
                 else // Single Keycode
                 {
-                    iis.Keyboard.DelayedKeyPressDown(keyCode, 40);
+                    iis.Keyboard.DelayedKeyPressDown(keyCode);
                 }
             }
         }
@@ -116,13 +156,21 @@ namespace starcitizen.Buttons
 
                 if (keyStrokes.Count > 0)
                 {
-                    iis.Keyboard.DelayedModifiedKeyStrokeUp(keyStrokes.Select(ks => ks), keyCode, 40);
+                    iis.Keyboard.ModifiedKeyStrokeUp(keyStrokes.Select(ks => ks), keyCode);
 
                 }
                 else // Single Keycode
                 {
-                    iis.Keyboard.DelayedKeyPressUp(keyCode, 40);
+                    iis.Keyboard.DelayedKeyPressUp(keyCode);
                 }
+            }
+        }
+
+        protected void SendKeypress(string keyInfo, int delay)
+        {
+            if (!string.IsNullOrEmpty(keyInfo))
+            {
+                SendInput("{" + keyInfo + "}", delay);
             }
         }
 

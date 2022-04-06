@@ -110,15 +110,13 @@ namespace WindowsInput
         /// Calls the Win32 SendInput method with a KeyUp message
         /// </summary>
         /// <param name="dikCode">The <see cref="DirectInputKeyCode"/> to press</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode.</param>
-        IKeyboardSimulator DelayedKeyPressUp(DirectInputKeyCode dikCode, int delay);
+        IKeyboardSimulator DelayedKeyPressUp(DirectInputKeyCode dikCode);
 
         /// <summary>
         /// Calls the Win32 SendInput method with a KeyDown message
         /// </summary>
         /// <param name="dikCode">The <see cref="DirectInputKeyCode"/> to press</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode.</param>
-        IKeyboardSimulator DelayedKeyPressDown(DirectInputKeyCode dikCode, int delay);
+        IKeyboardSimulator DelayedKeyPressDown(DirectInputKeyCode dikCode);
 
 
         /// <summary>
@@ -152,8 +150,7 @@ namespace WindowsInput
         /// </summary>
         /// <param name="modifierDikCodes">The list of modifier keys</param>
         /// <param name="dikCode">The key to simulate</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode.</param>
-        IKeyboardSimulator DelayedModifiedKeyStrokeDown(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode, int delay);
+        IKeyboardSimulator ModifiedKeyStrokeDown(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode);
 
 
         /// <summary>
@@ -162,8 +159,7 @@ namespace WindowsInput
         /// </summary>
         /// <param name="modifierDikCodes">The list of modifier keys</param>
         /// <param name="dikCode">The key to simulate</param>
-        /// <param name="delay">Delay in ms between keydown and keyup of final keyCode.</param>
-        IKeyboardSimulator DelayedModifiedKeyStrokeUp(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode, int delay);
+        IKeyboardSimulator ModifiedKeyStrokeUp(IEnumerable<DirectInputKeyCode> modifierDikCodes, DirectInputKeyCode dikCode);
 
         /// <summary>
         /// Simulates a modified keystroke where there is one modifier and multiple keys like CTRL-K-C where CTRL is the modifierKey and K and C are the keys.

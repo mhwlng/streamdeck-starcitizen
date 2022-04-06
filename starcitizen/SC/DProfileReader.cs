@@ -660,5 +660,77 @@ namespace SCJMapper_V2.SC
 
         }
 
+
+        public void CreateMacroHtml(string macrotemplate)
+        {
+            try
+            {
+                var keyboard = KeyboardLayouts.GetThreadKeyboardLayout();
+
+                CultureInfo culture;
+
+                try
+                {
+                    culture = new CultureInfo(keyboard.KeyboardId);
+                }
+                catch
+                {
+                    culture = new CultureInfo("en-US");
+                }
+
+                Logger.Instance.LogMessage(TracingLevel.INFO, $"Keyboard Detected, language : {keyboard.LanguageId:X} keyboard : {keyboard.KeyboardId:X} culture : {culture.Name}");
+
+                var dropdownHtml = new StringBuilder();
+
+                var mapsList =
+                    actions
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Value.Keyboard))
+                        .OrderBy(x => x.Value.MapUILabel)
+                        .GroupBy(x => x.Value.MapUILabel)
+                        .Select(x => x.Key);
+
+
+                foreach (var map in mapsList)
+                {
+                    var options = actions
+                        .Where(x => x.Value.MapUILabel == map && !string.IsNullOrWhiteSpace(x.Value.Keyboard))
+                        .OrderBy(x => x.Value.MapUICategory)
+                        .ThenBy(x => x.Value.MapUILabel)
+                        .ThenBy(x => x.Value.UILabel);
+
+                    if (options.Any())
+                    {
+                        var htmlline = $"<optgroup label=\"{map}\">";
+
+                        dropdownHtml.AppendLine(htmlline);
+
+                        foreach (var action in options)
+                        {
+                            var keyString = CommandTools.ConvertKeyStringToLocale(action.Value.Keyboard, culture.Name);
+
+                            var key = keyString.Replace("Dik", "").Replace("}{", "+").Replace("}", "").Replace("{", "");
+
+                            htmlline = $"   <option value=\"{action.Value.Name}\">{action.Value.UILabel} [{key}]</option>";
+
+                            dropdownHtml.AppendLine(htmlline);
+                        }
+
+                        htmlline = $"</optgroup>";
+
+                        dropdownHtml.AppendLine(htmlline);
+                    }
+
+                }
+
+                File.WriteAllText(Path.Combine(@"PropertyInspector\StarCitizen", "Macro.html"),
+                    macrotemplate.Replace("[DROPDOWN]", dropdownHtml.ToString()));
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, $"CreateMacroHtml {ex}");
+            }
+
+        }
+
     }
 }

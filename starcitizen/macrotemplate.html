@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>Mhwlng's Star Citizen</title>
+    <link rel="stylesheet" href="../sdpi.css">
+    <link rel="stylesheet" href="../jquery.highlight-within-textarea.css">
+    <script src="../sdtools.common.js"></script>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../jquery.highlight-within-textarea.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Function</div>
+            <select class="sdpi-item-value select sdProperty" id="function" oninput="setSettings()">
+
+                [DROPDOWN]
+
+            </select>
+        </div>
+
+        <div class="sdpi-item" id="dvClickSound">
+            <div class="sdpi-item-label" onclick="clearFileName('clickSound');">Sound</div>
+            <div class="sdpi-item-group file" id="filepickergroup1">
+                <input class="sdpi-item-value sdProperty sdFile" type="file" id="clickSound" accept=".wav" oninput="setSettings()">
+                <label class="sdpi-file-info " for="clickSound" id="clickSoundFilename">No file...</label>
+                <label class="sdpi-file-label" for="clickSound">Choose file...</label>
+            </div>
+        </div>
+
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Delay (ms)</div>
+            <input class="sdpi-item-value sdProperty" id="delay" oninput="setSettings()">
+        </div>
+
+    </div>
+</body>
+</html>
