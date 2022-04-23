@@ -710,6 +710,7 @@ namespace starcitizen
                 case "end": return DirectInputKeyCode.DikEnd;
                 case "pgup": return DirectInputKeyCode.DikPageUp;
                 case "pgdown": return DirectInputKeyCode.DikPageDown;
+                case "pgdn": return DirectInputKeyCode.DikPageDown;
                 case "print": return DirectInputKeyCode.DikPrintscreen;
                 case "scrolllock": return DirectInputKeyCode.DikScroll;
                 case "pause": return DirectInputKeyCode.DikPause;
