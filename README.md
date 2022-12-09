@@ -50,6 +50,8 @@ There are 5 bindings (They must be keyboard bindings, you can't bind the mouse w
 - Touch screen press
 - Touch screen long press
 
+![Dial Image](https://i.imgur.com/MjcGque.png)
+
 When a dial is rotated, the 'key down' event is sent to the keyboard once. 
 When you let go of the dial for at least 100ms : the 'key up' event is sent to the keyboard. 
 
