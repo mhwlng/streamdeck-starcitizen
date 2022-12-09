@@ -65,11 +65,7 @@ namespace starcitizen.Buttons
         private DateTime? lastDialTime = null;
 
         private Thread dialWatcherThread = null;
-        /// <summary>
-        /// Token to signal that we are no longer watching
-        /// </summary>
         private CancellationTokenSource cancellationTokenSource;
-
 
         public Dial(SDConnection connection, InitialPayload payload) : base(connection, payload)
         {
@@ -95,10 +91,13 @@ namespace starcitizen.Buttons
             {
                 while (true)
                 {
-                    if (Program.dpReader == null ||  cancellationTokenSource.IsCancellationRequested)
+                    if (Program.dpReader == null)
                     {
                         StreamDeckCommon.ForceStop = true;
-
+                        return;
+                    }
+                    else if (cancellationTokenSource.IsCancellationRequested)
+                    {
                         return;
                     }
 
