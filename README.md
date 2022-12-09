@@ -4,6 +4,8 @@
 
 ![Elgato Stream Deck button plugin for Star Citizen](https://i.imgur.com/FSHsXRG.png)
 
+**At least streamdeck software version 6 is required.**
+
 This plugin gets the key bindings from the Star Citizen game files.
 
 The bindings in the streamdeck plugin are automatically updated when changing bindings in Star Citizen options screen.
@@ -38,7 +40,26 @@ You can then set up different images for each toggle state.
 The disadvantage is: that if you would press e.g. the gear up/down toggle button while the ship is still on the ground/powered off, 
 then the button image would be out of sync.
 
-After you install the plugin in the streamdeck software, then there will be a new button type in the streamdeck software.
+The plugin also has a Dial button for use with the 4 dials on the Streamdeck+ model.
+
+There are 5 bindings (They must be keyboard bindings, you can't bind the mouse wheel!) :
+
+- Dial Clockwise
+- Dial Counter-Clockwise
+- Dial Press
+- Touch screen press
+- Touch screen long press
+
+When a dial is rotated, the 'key down' event is sent to the keyboard once. 
+When you let go of the dial for at least 100ms : the 'key up' event is sent to the keyboard. 
+
+When a dial button is pushed, the 'key down' event is sent to the keyboard. 
+When a dial button is released, the 'key up' event is sent to the keyboard. 
+
+When the touch screen is pressed or long-pressed, the behaviour is like the multi-action button :
+The 'key down' event is sent to the keyboard. After a user-definable delay (default = 40 ms) the 'key up' event is sent to the keyboard. 
+
+After you install the plugin in the streamdeck software, then there will be new button types in the streamdeck software.
 
 Choose a button in the streamdeck software (drag and drop), then choose a Star Citizen function for that button 
 (that must have a keyboard binding in Star Citizen. **A mouse, gamepad or joystick binding won't work!**) 
@@ -48,7 +69,7 @@ Add an image to a button in this way:
 
 ![Button Image](https://i.imgur.com/xkgy7uZ.png)
 
-Animated gif files are supported.
+Animated gif files are supported. Dial images can be wider.
 
 When the plugin is first started, it finds and opens the game file :
 

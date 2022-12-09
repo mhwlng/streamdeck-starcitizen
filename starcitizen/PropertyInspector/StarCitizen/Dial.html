@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>Mhwlng's Star Citizen</title>
+    <link rel="stylesheet" href="../sdpi.css">
+    <link rel="stylesheet" href="../jquery.highlight-within-textarea.css">
+    <script src="../sdtools.common.js"></script>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../jquery.highlight-within-textarea.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Dial CW</div>
+            <select class="sdpi-item-value select sdProperty" id="functioncw" oninput="setSettings()">
+
+                <optgroup label="Camera - Advanced Camera Controls">
+   <option value="view_director_mode-view_fstop_in">[PH] Increase DoF [Home]</option>
+   <option value="view_director_mode-view_enable_camview_mode">Advanced Camera Controls Modifier (Hold) [F4]</option>
+   <option value="view_director_mode-view_switch_to_alternative">Advanced Camera Controls Modifier (Hold) [Z]</option>
+   <option value="view_director_mode-view_reset_saved">Clear Saved View [Numpad0]</option>
+   <option value="view_director_mode-view_fstop_out">Decrease DoF [End]</option>
+   <option value="view_director_mode-view_fov_out">Decrease FoV [Subtract]</option>
+   <option value="view_director_mode-view_fov_in">Increase FoV [Add]</option>
+   <option value="view_director_mode-view_load_view_1">Load View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_load_view_2">Load View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_load_view_3">Load View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_load_view_4">Load View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_load_view_5">Load View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_load_view_6">Load View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_load_view_7">Load View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_load_view_8">Load View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_load_view_9">Load View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_restore_defaults">Reset Current View [Multiply]</option>
+   <option value="view_director_mode-view_save_view_1">Save View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_save_view_2">Save View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_save_view_3">Save View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_save_view_4">Save View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_save_view_5">Save View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_save_view_6">Save View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_save_view_7">Save View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_save_view_8">Save View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_save_view_9">Save View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_move_target_X_neg">X Offset Negative [Left]</option>
+   <option value="view_director_mode-view_move_target_X_pos">X Offset Positive [Right]</option>
+   <option value="view_director_mode-view_move_target_Y_neg">Y Offset Negative / Spectator Freecam Focal Point Backward [Down]</option>
+   <option value="view_director_mode-view_move_target_Y_pos">Y Offset Positive / Spectator Freecam Focal Point Forward [Up]</option>
+   <option value="view_director_mode-view_move_target_Z_neg">Z Offset Negative [PageDown]</option>
+   <option value="view_director_mode-view_move_target_Z_pos">Z Offset Positive [PageUp]</option>
+</optgroup>
+<optgroup label="E.V.A - All">
+   <option value="zero_gravity_eva-eva_detach">@ui_CIEVADetach [Y]</option>
+   <option value="zero_gravity_eva-eva_launch">@ui_CIEVALaunch [Space]</option>
+   <option value="zero_gravity_eva-eva_push_back">@ui_CIEVAPushBack [S]</option>
+   <option value="zero_gravity_eva-eva_push_forward">@ui_CIEVAPushForward [W]</option>
+   <option value="zero_gravity_eva-eva_brake">Brake [X]</option>
+   <option value="zero_gravity_eva-eva_toggle_headlook_mode">Freelook (Hold) [Z]</option>
+   <option value="zero_gravity_eva-eva_roll_left">Roll Left [Q]</option>
+   <option value="zero_gravity_eva-eva_roll_right">Roll Right [E]</option>
+   <option value="zero_gravity_eva-eva_strafe_back">Strafe Backward [S]</option>
+   <option value="zero_gravity_eva-eva_strafe_forward">Strafe Forward [W]</option>
+   <option value="zero_gravity_eva-eva_strafe_left">Strafe Left [A]</option>
+   <option value="zero_gravity_eva-eva_strafe_right">Strafe Right [D]</option>
+   <option value="zero_gravity_eva-eva_strafe_up">Strafe Up [Space]</option>
+</optgroup>
+<optgroup label="Electronic Access - Spectator">
+   <option value="spectator-spectate_toggle_hud">Spectator Camera HUD (Toggle) [B]</option>
+   <option value="spectator-spectate_toggle_lock_target">Spectator Camera Lock Target [1]</option>
+   <option value="spectator-spectate_gen_nextmode">Spectator Camera Mode (Next) [F4]</option>
+</optgroup>
+<optgroup label="Flight - Docking">
+   <option value="spaceship_docking-v_invoke_docking">Invoke Docking [N]</option>
+   <option value="spaceship_docking-v_dock_toggle_view">Toggle Docking Camera [0]</option>
+   <option value="spaceship_docking-v_toggle_docking_mode">Toggle Docking Mode [N]</option>
+</optgroup>
+<optgroup label="Flight - HUD">
+   <option value="spaceship_hud-v_starmap">Map [F2]</option>
+   <option value="spaceship_hud-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="spaceship_hud-v_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="spaceship_hud-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Flight - Movement">
+   <option value="spaceship_movement-v_accel_range_down">Acceleration Limiter Decrease [Lalt+Lcontrol+']</option>
+   <option value="spaceship_movement-v_accel_range_up">Acceleration Limiter Increase [']</option>
+   <option value="spaceship_movement-v_accel_range_rel">Acceleration Limiter Up / Down (rel.) [Ralt+Escape]</option>
+   <option value="spaceship_movement-v_autoland">Autoland [N]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_cruise_control">Cruise Control (Toggle) [C]</option>
+   <option value="spaceship_movement-v_transform_cycle">Cycle Configuration [Lalt+K]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_vector_decoupling">Decoupled mode (Toggle) [Lalt+C]</option>
+   <option value="spaceship_movement-v_toggle_landing_system">Landing System (Toggle) [N]</option>
+   <option value="spaceship_movement-v_roll_left">Roll left [Q]</option>
+   <option value="spaceship_movement-v_roll_right">Roll right [E]</option>
+   <option value="spaceship_movement-v_space_brake">Spacebrake [X]</option>
+   <option value="spaceship_movement-v_speed_range_down">Speed Limiter - Decrease [Lalt+Lcontrol+:]</option>
+   <option value="spaceship_movement-v_speed_range_up">Speed Limiter - Increase [:]</option>
+   <option value="spaceship_movement-v_speed_range_rel">Speed Limiter (Rel.) [Escape]</option>
+   <option value="spaceship_movement-v_strafe_left">Strafe left [A]</option>
+   <option value="spaceship_movement-v_strafe_right">Strafe right [D]</option>
+   <option value="spaceship_movement-v_strafe_up">Strafe up [Space]</option>
+   <option value="spaceship_movement-v_strafe_back">Throttle back [S]</option>
+   <option value="spaceship_movement-v_strafe_forward">Throttle forward [W]</option>
+   <option value="spaceship_movement-v_toggle_vtol">Toggle VTOL [K]</option>
+</optgroup>
+<optgroup label="Flight - Power">
+   <option value="spaceship_power-v_power_throttle_down">Decrease Throttle [F9]</option>
+   <option value="spaceship_power-v_power_throttle_min">Decrease Throttle to Min [F9]</option>
+   <option value="spaceship_power-v_power_throttle_up">Increase Throttle [F10]</option>
+   <option value="spaceship_power-v_power_throttle_max">Increase Throttle to Max [F10]</option>
+   <option value="spaceship_power-v_power_toggle">Toggle Power - All [U]</option>
+   <option value="spaceship_power-v_power_toggle_shields">Toggle Power - Shields [O]</option>
+   <option value="spaceship_power-v_power_toggle_thrusters">Toggle Power - Thrusters [I]</option>
+   <option value="spaceship_power-v_power_toggle_weapons">Toggle Power - Weapons [P]</option>
+</optgroup>
+<optgroup label="Flight - Quantum Travel">
+   <option value="spaceship_quantum-v_toggle_qdrive_engagement">Engage Quantum Drive (Hold) [B]</option>
+</optgroup>
+<optgroup label="Flight - Radar">
+   <option value="spaceship_radar-v_invoke_ping">Activate Ping [Tab]</option>
+   <option value="spaceship_radar-v_dec_ping_focus_angle">Decrease Ping Angle [,]</option>
+   <option value="spaceship_radar-v_inc_ping_focus_angle">Increase Ping Angle [.]</option>
+</optgroup>
+<optgroup label="Flight - Target Hailing">
+   <option value="spaceship_target_hailing-v_target_hail">Hail Target [9]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - General">
+   <option value="vehicle_general-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="vehicle_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="vehicle_general-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+   <option value="vehicle_general-v_horn">Horn [Space]</option>
+   <option value="vehicle_general-v_starmap">Map [F2]</option>
+   <option value="vehicle_general-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="vehicle_general-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - Movement">
+   <option value="vehicle_driver-v_mgv_switch_brake_on_idle">@ui_CI_MGV_ToggleBreakOnIdle [V]</option>
+   <option value="vehicle_driver-v_brake">Brake [X]</option>
+   <option value="vehicle_driver-v_move_back">Drive Backward [S]</option>
+   <option value="vehicle_driver-v_move_forward">Drive Forward [W]</option>
+   <option value="vehicle_driver-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="vehicle_driver-v_yaw_left">Turn Left [A]</option>
+   <option value="vehicle_driver-v_yaw_right">Turn Right [D]</option>
+</optgroup>
+<optgroup label="Lights">
+   <option value="lights_controller-v_lights">Headlights (Toggle) [L]</option>
+</optgroup>
+<optgroup label="On Foot - All">
+   <option value="player-weapon_change_firemode">Change Fire Mode [B]</option>
+   <option value="player-customize">Customize Weapon [J]</option>
+   <option value="player-melee_dodgeBack">Dodge Back [S]</option>
+   <option value="player-melee_dodgeLeft">Dodge left [A]</option>
+   <option value="player-melee_dodgeRight">Dodge Right [D]</option>
+   <option value="player-toggle_flashlight">Flashlight (Toggle) [T]</option>
+   <option value="player-force_respawn">Force Re-spawn (E.V.A. / On Foot) [Backspace]</option>
+   <option value="player-weapon_auxiliary_action">FPS Underbarrel Attachment Action [U]</option>
+   <option value="player-free_thirdperson_camera">Free View Camera (Hold) [Z]</option>
+   <option value="player-holster">Holster Weapon [R]</option>
+   <option value="player-jump">Jump [Space]</option>
+   <option value="player-leanleft">Lean Left [Q]</option>
+   <option value="player-leanright">Lean Right [E]</option>
+   <option value="player-v_starmap">Map [F2]</option>
+   <option value="player-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="player-moveback">Move Backwards [S]</option>
+   <option value="player-moveforward">Move Forward [W]</option>
+   <option value="player-moveleft">Move Left [A]</option>
+   <option value="player-moveright">Move Right [D]</option>
+   <option value="player-prone">Prone [X]</option>
+   <option value="incapacitated-incapacitatedRespawn">Regen (while Incapacitated) [Backspace]</option>
+   <option value="player-reload">Reload [R]</option>
+   <option value="player-downedRevivalRequest">Request Rescue (while Incapacitated) [M]</option>
+   <option value="player-pl_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="player-selectUtilityItem">Select Contract Item [6]</option>
+   <option value="player-selectgadget">Select Gadget [4]</option>
+   <option value="player-selectMeleeWeapon">Select Melee [5]</option>
+   <option value="player-selectprimary">Select Primary Weapon [2]</option>
+   <option value="player-selectsecondary">Select Secondary Weapon [3]</option>
+   <option value="player-selectpistol">Select Sidearm [1]</option>
+   <option value="player-thirdperson">Third Person View (Toggle) [F4]</option>
+   <option value="player-selectUnarmedCombat">Unarmed Combat [0]</option>
+   <option value="player-weapon_zeroing_decrease">Weapon Zeroing Decrease [PageDown]</option>
+   <option value="player-weapon_zeroing_increase">Weapon Zeroing Increase / Auto [PageUp]</option>
+   <option value="player-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Quick Keys, Interactions, and Inner Thought">
+   <option value="player_choice-pc_qs_consumables">@ui_Consumable_QuickSelectRadialMenu [C]</option>
+   <option value="player_choice-pc_personal_back">Exit [Numpad0]</option>
+   <option value="player_choice-pc_qs_flight_mode">Flight Mode Select Radial Menu [Lshift+Tab]</option>
+   <option value="player_choice-pc_interaction_mode">Interaction Mode [F]</option>
+   <option value="player_choice-pc_screen_focus_down">MFD Down [S]</option>
+   <option value="player_choice-pc_screen_focus_left">MFD Left [A]</option>
+   <option value="player_choice-pc_screen_focus_right">MFD Right [D]</option>
+   <option value="player_choice-pc_screen_focus_up">MFD Up [W]</option>
+   <option value="player_choice-pc_pit_miningmode_actions">Mining Mode Actions - PIT Category [Lalt+M]</option>
+   <option value="player_choice-pc_pit_inventory">Personal Commodity Inventory (Toggle) [I]</option>
+   <option value="player_choice-pc_personal_thought">Personal Inner Thought (PIT) [F+Escape]</option>
+   <option value="player_choice-pc_qs_grenades">Throwable Select Radial Menu [G]</option>
+   <option value="player_choice-pc_qs_weapons_pistol">Weapon Select Radial Menu [1]</option>
+   <option value="player_choice-pc_qs_weapons_primary">Weapon Select Radial Menu [2]</option>
+   <option value="player_choice-pc_qs_weapons_secondary">Weapon Select Radial Menu [3]</option>
+</optgroup>
+<optgroup label="Social - Emotes">
+   <option value="player_emotes-emote_cs_forward">Forward [Numpad5]</option>
+   <option value="player_emotes-emote_cs_left">Left [Numpad1]</option>
+   <option value="player_emotes-emote_cs_no">No [Numpad6]</option>
+   <option value="player_emotes-emote_cs_right">Right [Numpad3]</option>
+   <option value="player_emotes-emote_cs_stop">Stop [Numpad2]</option>
+   <option value="player_emotes-emote_cs_yes">Yes [Numpad4]</option>
+</optgroup>
+<optgroup label="Social - General">
+   <option value="default-toggle_chat">Chat Window (Toggle) [F12]</option>
+   <option value="default-toggle_contact">CommLink App (Toggle) [F11]</option>
+   <option value="default-pl_exit">Exit seat [Y]</option>
+   <option value="default-respawn">Re-spawn [X]</option>
+</optgroup>
+<optgroup label="Social - Invites">
+   <option value="ui_notification-ui_notification_accept">Accept Invite [[]</option>
+   <option value="ui_notification-ui_notification_ignore">Ignore Invite (hold) []]</option>
+   <option value="ui_notification-ui_notification_decline">Reject Invite []]</option>
+</optgroup>
+<optgroup label="Turret Advanced">
+   <option value="turret_advanced-turret_change_position">@ui_ci_turret_change_position [S]</option>
+   <option value="turret_advanced-turret_limiter_rel_decrease">[PH] Turret - Speed Limiter - Decrease (rel) [A]</option>
+   <option value="turret_advanced-turret_limiter_rel_increase">[PH] Turret - Speed Limiter - Increase (rel) [D]</option>
+   <option value="turret_advanced-turret_change_movement_type">Change Preferred Movement Type [Escape]</option>
+   <option value="turret_advanced-turret_change_firemode">Cycle fire mode (staggered / combined) [B]</option>
+   <option value="turret_advanced-turret_recenter">Recenter Turret (Hold) [C]</option>
+   <option value="turret_advanced-turret_toggle_esp">Toggle E.S.P. on / off [E]</option>
+   <option value="turret_advanced-turret_limiter_toggle">Turret - Speed Limiter - On/Off (Hold/Toggle) [A]</option>
+   <option value="turret_advanced-turret_gyromode">Turret Gyro Stabilization (Toggle) [X]</option>
+</optgroup>
+<optgroup label="Turret Movement">
+   <option value="turret_movement-turret_remote_exit">Exit Remote Turret [Y]</option>
+   <option value="turret_movement-turret_toggle_mouse_mode">Toggle Turret Mouse Movement (VJoy, FPS style) [Q]</option>
+</optgroup>
+<optgroup label="Vehicles - Cockpit">
+   <option value="spaceship_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="spaceship_general-v_self_destruct">Self Destruct [Backspace]</option>
+</optgroup>
+<optgroup label="Vehicles - Mining">
+   <option value="spaceship_mining-v_mining_use_consumable1">Activate Mining Module (Slot 1) [Lalt+1]</option>
+   <option value="spaceship_mining-v_mining_use_consumable2">Activate Mining Module (Slot 2) [Lalt+2]</option>
+   <option value="spaceship_mining-v_mining_use_consumable3">Activate Mining Module (Slot 3) [Lalt+3]</option>
+   <option value="spaceship_mining-v_jettison_volatile_cargo">Jettison Cargo [Lalt+J]</option>
+</optgroup>
+<optgroup label="Vehicles - Missiles">
+   <option value="spaceship_missiles-v_weapon_bombing_toggle_desired_impact_point_hold">[PH] Bombs - Toggle Desired Impact Point (Hold) [T]</option>
+   <option value="spaceship_missiles-v_weapon_cycle_missile_fwd">Cycle Next Missile Type [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_increase_max_missiles">Increase Number of Armed Missiles [G]</option>
+   <option value="spaceship_missiles-v_weapon_toggle_launch_missile">Launch Missiles (Tap) [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_reset_max_missiles">Reset Number of Armed Missiles [Lalt+G]</option>
+</optgroup>
+<optgroup label="Vehicles - Power Triangle Assignment">
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_engine_combined_increase_max">Engines - Increase (Tap) / Set to Max (Hold) [F6]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_reset">Reset Assignments [F8]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_shield_combined_increase_max">Shields - Increase (Tap) / Set to Max (Hold) [F7]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_weapon_combined_increase_max">Weapons - Increase (Tap) / Set to Max (Hold) [F5]</option>
+</optgroup>
+<optgroup label="Vehicles - Seats and Operator Modes">
+   <option value="seat_general-v_eject">Eject [Ralt+Y]</option>
+   <option value="seat_general-v_emergency_exit">Emergency Exit Seat [U+Lshift]</option>
+   <option value="seat_general-v_toggle_mining_mode">Mining Mode (Toggle) [M]</option>
+   <option value="seat_general-v_toggle_missile_mode">Missile Operator Mode (Toggle) [Escape]</option>
+   <option value="seat_general-v_toggle_quantum_mode">Quantum Travel System (Toggle) [B]</option>
+   <option value="seat_general-v_toggle_scan_mode">Scanning Mode (Toggle) [V]</option>
+</optgroup>
+<optgroup label="Vehicles - Shields and Countermeasures">
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_decrease">Decoy - Decrease Burst Size (tap) [Lalt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_increase">Decoy - Increase Burst Size (tap) [Ralt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_launch">Decoy - Launch Burst (tap), Set and Launch Burst (hold) [H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_noise_launch">Noise - Deploy (Tap) [J]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_back">Shield raise level back [Numpad2]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_down">Shield raise level bottom [Numpad1]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_forward">Shield raise level front [Numpad8]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_left">Shield raise level left [Numpad4]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_right">Shield raise level right [Numpad6]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_up">Shield raise level top [Numpad7]</option>
+   <option value="spaceship_defensive-v_shield_reset_level">Shield reset levels [Numpad5]</option>
+</optgroup>
+<optgroup label="Vehicles - Target Cycling">
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_fwd">Cycle Lock - All - Forward [7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_reset">Cycle Lock - All - Reset to Closest [Lalt+7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_fwd">Cycle Lock - Attackers - Forward [4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_reset">Cycle Lock - Attackers - Reset to Closest [Lalt+4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_fwd">Cycle Lock - Friendlies - Forward [6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_reset">Cycle Lock - Friendlies - Reset to Closest [Lalt+6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_fwd">Cycle Lock - Hostiles - Forward [5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_reset">Cycle Lock - Hostiles - Reset to Closest [Lalt+5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_fwd">Cycle Lock - In View - Forward [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_reset">Cycle Lock - In View - Under Reticle [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_fwd">Cycle Lock - Sub-Target - Forward [8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_reset">Cycle Lock - Sub-Target - Reset to Main Target [Lalt+8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_fwd">Cycle Selection - Forward [R]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_reset">Cycle Selection - Reset to Auto [Lalt+R]</option>
+</optgroup>
+<optgroup label="Vehicles - Targeting">
+   <option value="spaceship_targeting-v_look_ahead_enable">Enable / Disable Look Ahead [Lalt+L]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_1">Pin Index 1 - Lock / Unlock Pinned Target [1]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_1">Pin Index 1 - Pin / Unpin Selected Target [Lalt+1]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_2">Pin Index 2 - Lock / Unlock Pinned Target [2]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_2">Pin Index 2 - Pin / Unpin Selected Target [Lalt+2]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_3">Pin Index 3 - Lock / Unlock Pinned Target [3]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_3">Pin Index 3 - Pin / Unpin Selected Target [Lalt+3]</option>
+   <option value="spaceship_targeting-v_target_remove_all_pins">Remove All Pinned Targets [0]</option>
+   <option value="spaceship_targeting-v_target_unlock_selected">Unlock Locked Target [Lalt+T]</option>
+</optgroup>
+<optgroup label="Vehicles - View">
+   <option value="spaceship_view-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="spaceship_view-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="spaceship_view-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+</optgroup>
+<optgroup label="Vehicles - Weapons">
+   <option value="spaceship_weapons-v_weapon_cycle_aimmode">Cycle Gimbal Assist / Standard Gimbal / Gimbal Lock modes [G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_lock_vector">Manual Gimbal Mode - Lock Aim Vector [Ralt+G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_cycle_source">Manual Gimbal Mode - Swap VJoy / Look Direction (Toggle, Hold) [Lalt+G]</option>
+</optgroup>
+<optgroup label="VOIP, FOIP and Head Tracking">
+   <option value="player_input_optical_tracking-foip_cyclechannel">Cycle through audio channels [Decimal]</option>
+   <option value="player_input_optical_tracking-headtrack_enabled">Enable Head Tracking (Toggle) [Divide]</option>
+   <option value="player_input_optical_tracking-foip_recalibrate">FOIP Recalibrate [Multiply]</option>
+   <option value="player_input_optical_tracking-foip_viewownplayer">FOIP Selfie Cam [Subtract]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk">VOIP Push To Talk [Add]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk_proximity">VOIP Push To Talk (Proximity only) [Lalt+Add]</option>
+</optgroup>
+
+
+            </select>
+        </div>
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Dial CCW</div>
+            <select class="sdpi-item-value select sdProperty" id="functionccw" oninput="setSettings()">
+
+                <optgroup label="Camera - Advanced Camera Controls">
+   <option value="view_director_mode-view_fstop_in">[PH] Increase DoF [Home]</option>
+   <option value="view_director_mode-view_enable_camview_mode">Advanced Camera Controls Modifier (Hold) [F4]</option>
+   <option value="view_director_mode-view_switch_to_alternative">Advanced Camera Controls Modifier (Hold) [Z]</option>
+   <option value="view_director_mode-view_reset_saved">Clear Saved View [Numpad0]</option>
+   <option value="view_director_mode-view_fstop_out">Decrease DoF [End]</option>
+   <option value="view_director_mode-view_fov_out">Decrease FoV [Subtract]</option>
+   <option value="view_director_mode-view_fov_in">Increase FoV [Add]</option>
+   <option value="view_director_mode-view_load_view_1">Load View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_load_view_2">Load View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_load_view_3">Load View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_load_view_4">Load View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_load_view_5">Load View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_load_view_6">Load View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_load_view_7">Load View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_load_view_8">Load View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_load_view_9">Load View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_restore_defaults">Reset Current View [Multiply]</option>
+   <option value="view_director_mode-view_save_view_1">Save View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_save_view_2">Save View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_save_view_3">Save View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_save_view_4">Save View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_save_view_5">Save View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_save_view_6">Save View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_save_view_7">Save View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_save_view_8">Save View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_save_view_9">Save View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_move_target_X_neg">X Offset Negative [Left]</option>
+   <option value="view_director_mode-view_move_target_X_pos">X Offset Positive [Right]</option>
+   <option value="view_director_mode-view_move_target_Y_neg">Y Offset Negative / Spectator Freecam Focal Point Backward [Down]</option>
+   <option value="view_director_mode-view_move_target_Y_pos">Y Offset Positive / Spectator Freecam Focal Point Forward [Up]</option>
+   <option value="view_director_mode-view_move_target_Z_neg">Z Offset Negative [PageDown]</option>
+   <option value="view_director_mode-view_move_target_Z_pos">Z Offset Positive [PageUp]</option>
+</optgroup>
+<optgroup label="E.V.A - All">
+   <option value="zero_gravity_eva-eva_detach">@ui_CIEVADetach [Y]</option>
+   <option value="zero_gravity_eva-eva_launch">@ui_CIEVALaunch [Space]</option>
+   <option value="zero_gravity_eva-eva_push_back">@ui_CIEVAPushBack [S]</option>
+   <option value="zero_gravity_eva-eva_push_forward">@ui_CIEVAPushForward [W]</option>
+   <option value="zero_gravity_eva-eva_brake">Brake [X]</option>
+   <option value="zero_gravity_eva-eva_toggle_headlook_mode">Freelook (Hold) [Z]</option>
+   <option value="zero_gravity_eva-eva_roll_left">Roll Left [Q]</option>
+   <option value="zero_gravity_eva-eva_roll_right">Roll Right [E]</option>
+   <option value="zero_gravity_eva-eva_strafe_back">Strafe Backward [S]</option>
+   <option value="zero_gravity_eva-eva_strafe_forward">Strafe Forward [W]</option>
+   <option value="zero_gravity_eva-eva_strafe_left">Strafe Left [A]</option>
+   <option value="zero_gravity_eva-eva_strafe_right">Strafe Right [D]</option>
+   <option value="zero_gravity_eva-eva_strafe_up">Strafe Up [Space]</option>
+</optgroup>
+<optgroup label="Electronic Access - Spectator">
+   <option value="spectator-spectate_toggle_hud">Spectator Camera HUD (Toggle) [B]</option>
+   <option value="spectator-spectate_toggle_lock_target">Spectator Camera Lock Target [1]</option>
+   <option value="spectator-spectate_gen_nextmode">Spectator Camera Mode (Next) [F4]</option>
+</optgroup>
+<optgroup label="Flight - Docking">
+   <option value="spaceship_docking-v_invoke_docking">Invoke Docking [N]</option>
+   <option value="spaceship_docking-v_dock_toggle_view">Toggle Docking Camera [0]</option>
+   <option value="spaceship_docking-v_toggle_docking_mode">Toggle Docking Mode [N]</option>
+</optgroup>
+<optgroup label="Flight - HUD">
+   <option value="spaceship_hud-v_starmap">Map [F2]</option>
+   <option value="spaceship_hud-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="spaceship_hud-v_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="spaceship_hud-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Flight - Movement">
+   <option value="spaceship_movement-v_accel_range_down">Acceleration Limiter Decrease [Lalt+Lcontrol+']</option>
+   <option value="spaceship_movement-v_accel_range_up">Acceleration Limiter Increase [']</option>
+   <option value="spaceship_movement-v_accel_range_rel">Acceleration Limiter Up / Down (rel.) [Ralt+Escape]</option>
+   <option value="spaceship_movement-v_autoland">Autoland [N]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_cruise_control">Cruise Control (Toggle) [C]</option>
+   <option value="spaceship_movement-v_transform_cycle">Cycle Configuration [Lalt+K]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_vector_decoupling">Decoupled mode (Toggle) [Lalt+C]</option>
+   <option value="spaceship_movement-v_toggle_landing_system">Landing System (Toggle) [N]</option>
+   <option value="spaceship_movement-v_roll_left">Roll left [Q]</option>
+   <option value="spaceship_movement-v_roll_right">Roll right [E]</option>
+   <option value="spaceship_movement-v_space_brake">Spacebrake [X]</option>
+   <option value="spaceship_movement-v_speed_range_down">Speed Limiter - Decrease [Lalt+Lcontrol+:]</option>
+   <option value="spaceship_movement-v_speed_range_up">Speed Limiter - Increase [:]</option>
+   <option value="spaceship_movement-v_speed_range_rel">Speed Limiter (Rel.) [Escape]</option>
+   <option value="spaceship_movement-v_strafe_left">Strafe left [A]</option>
+   <option value="spaceship_movement-v_strafe_right">Strafe right [D]</option>
+   <option value="spaceship_movement-v_strafe_up">Strafe up [Space]</option>
+   <option value="spaceship_movement-v_strafe_back">Throttle back [S]</option>
+   <option value="spaceship_movement-v_strafe_forward">Throttle forward [W]</option>
+   <option value="spaceship_movement-v_toggle_vtol">Toggle VTOL [K]</option>
+</optgroup>
+<optgroup label="Flight - Power">
+   <option value="spaceship_power-v_power_throttle_down">Decrease Throttle [F9]</option>
+   <option value="spaceship_power-v_power_throttle_min">Decrease Throttle to Min [F9]</option>
+   <option value="spaceship_power-v_power_throttle_up">Increase Throttle [F10]</option>
+   <option value="spaceship_power-v_power_throttle_max">Increase Throttle to Max [F10]</option>
+   <option value="spaceship_power-v_power_toggle">Toggle Power - All [U]</option>
+   <option value="spaceship_power-v_power_toggle_shields">Toggle Power - Shields [O]</option>
+   <option value="spaceship_power-v_power_toggle_thrusters">Toggle Power - Thrusters [I]</option>
+   <option value="spaceship_power-v_power_toggle_weapons">Toggle Power - Weapons [P]</option>
+</optgroup>
+<optgroup label="Flight - Quantum Travel">
+   <option value="spaceship_quantum-v_toggle_qdrive_engagement">Engage Quantum Drive (Hold) [B]</option>
+</optgroup>
+<optgroup label="Flight - Radar">
+   <option value="spaceship_radar-v_invoke_ping">Activate Ping [Tab]</option>
+   <option value="spaceship_radar-v_dec_ping_focus_angle">Decrease Ping Angle [,]</option>
+   <option value="spaceship_radar-v_inc_ping_focus_angle">Increase Ping Angle [.]</option>
+</optgroup>
+<optgroup label="Flight - Target Hailing">
+   <option value="spaceship_target_hailing-v_target_hail">Hail Target [9]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - General">
+   <option value="vehicle_general-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="vehicle_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="vehicle_general-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+   <option value="vehicle_general-v_horn">Horn [Space]</option>
+   <option value="vehicle_general-v_starmap">Map [F2]</option>
+   <option value="vehicle_general-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="vehicle_general-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - Movement">
+   <option value="vehicle_driver-v_mgv_switch_brake_on_idle">@ui_CI_MGV_ToggleBreakOnIdle [V]</option>
+   <option value="vehicle_driver-v_brake">Brake [X]</option>
+   <option value="vehicle_driver-v_move_back">Drive Backward [S]</option>
+   <option value="vehicle_driver-v_move_forward">Drive Forward [W]</option>
+   <option value="vehicle_driver-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="vehicle_driver-v_yaw_left">Turn Left [A]</option>
+   <option value="vehicle_driver-v_yaw_right">Turn Right [D]</option>
+</optgroup>
+<optgroup label="Lights">
+   <option value="lights_controller-v_lights">Headlights (Toggle) [L]</option>
+</optgroup>
+<optgroup label="On Foot - All">
+   <option value="player-weapon_change_firemode">Change Fire Mode [B]</option>
+   <option value="player-customize">Customize Weapon [J]</option>
+   <option value="player-melee_dodgeBack">Dodge Back [S]</option>
+   <option value="player-melee_dodgeLeft">Dodge left [A]</option>
+   <option value="player-melee_dodgeRight">Dodge Right [D]</option>
+   <option value="player-toggle_flashlight">Flashlight (Toggle) [T]</option>
+   <option value="player-force_respawn">Force Re-spawn (E.V.A. / On Foot) [Backspace]</option>
+   <option value="player-weapon_auxiliary_action">FPS Underbarrel Attachment Action [U]</option>
+   <option value="player-free_thirdperson_camera">Free View Camera (Hold) [Z]</option>
+   <option value="player-holster">Holster Weapon [R]</option>
+   <option value="player-jump">Jump [Space]</option>
+   <option value="player-leanleft">Lean Left [Q]</option>
+   <option value="player-leanright">Lean Right [E]</option>
+   <option value="player-v_starmap">Map [F2]</option>
+   <option value="player-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="player-moveback">Move Backwards [S]</option>
+   <option value="player-moveforward">Move Forward [W]</option>
+   <option value="player-moveleft">Move Left [A]</option>
+   <option value="player-moveright">Move Right [D]</option>
+   <option value="player-prone">Prone [X]</option>
+   <option value="incapacitated-incapacitatedRespawn">Regen (while Incapacitated) [Backspace]</option>
+   <option value="player-reload">Reload [R]</option>
+   <option value="player-downedRevivalRequest">Request Rescue (while Incapacitated) [M]</option>
+   <option value="player-pl_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="player-selectUtilityItem">Select Contract Item [6]</option>
+   <option value="player-selectgadget">Select Gadget [4]</option>
+   <option value="player-selectMeleeWeapon">Select Melee [5]</option>
+   <option value="player-selectprimary">Select Primary Weapon [2]</option>
+   <option value="player-selectsecondary">Select Secondary Weapon [3]</option>
+   <option value="player-selectpistol">Select Sidearm [1]</option>
+   <option value="player-thirdperson">Third Person View (Toggle) [F4]</option>
+   <option value="player-selectUnarmedCombat">Unarmed Combat [0]</option>
+   <option value="player-weapon_zeroing_decrease">Weapon Zeroing Decrease [PageDown]</option>
+   <option value="player-weapon_zeroing_increase">Weapon Zeroing Increase / Auto [PageUp]</option>
+   <option value="player-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Quick Keys, Interactions, and Inner Thought">
+   <option value="player_choice-pc_qs_consumables">@ui_Consumable_QuickSelectRadialMenu [C]</option>
+   <option value="player_choice-pc_personal_back">Exit [Numpad0]</option>
+   <option value="player_choice-pc_qs_flight_mode">Flight Mode Select Radial Menu [Lshift+Tab]</option>
+   <option value="player_choice-pc_interaction_mode">Interaction Mode [F]</option>
+   <option value="player_choice-pc_screen_focus_down">MFD Down [S]</option>
+   <option value="player_choice-pc_screen_focus_left">MFD Left [A]</option>
+   <option value="player_choice-pc_screen_focus_right">MFD Right [D]</option>
+   <option value="player_choice-pc_screen_focus_up">MFD Up [W]</option>
+   <option value="player_choice-pc_pit_miningmode_actions">Mining Mode Actions - PIT Category [Lalt+M]</option>
+   <option value="player_choice-pc_pit_inventory">Personal Commodity Inventory (Toggle) [I]</option>
+   <option value="player_choice-pc_personal_thought">Personal Inner Thought (PIT) [F+Escape]</option>
+   <option value="player_choice-pc_qs_grenades">Throwable Select Radial Menu [G]</option>
+   <option value="player_choice-pc_qs_weapons_pistol">Weapon Select Radial Menu [1]</option>
+   <option value="player_choice-pc_qs_weapons_primary">Weapon Select Radial Menu [2]</option>
+   <option value="player_choice-pc_qs_weapons_secondary">Weapon Select Radial Menu [3]</option>
+</optgroup>
+<optgroup label="Social - Emotes">
+   <option value="player_emotes-emote_cs_forward">Forward [Numpad5]</option>
+   <option value="player_emotes-emote_cs_left">Left [Numpad1]</option>
+   <option value="player_emotes-emote_cs_no">No [Numpad6]</option>
+   <option value="player_emotes-emote_cs_right">Right [Numpad3]</option>
+   <option value="player_emotes-emote_cs_stop">Stop [Numpad2]</option>
+   <option value="player_emotes-emote_cs_yes">Yes [Numpad4]</option>
+</optgroup>
+<optgroup label="Social - General">
+   <option value="default-toggle_chat">Chat Window (Toggle) [F12]</option>
+   <option value="default-toggle_contact">CommLink App (Toggle) [F11]</option>
+   <option value="default-pl_exit">Exit seat [Y]</option>
+   <option value="default-respawn">Re-spawn [X]</option>
+</optgroup>
+<optgroup label="Social - Invites">
+   <option value="ui_notification-ui_notification_accept">Accept Invite [[]</option>
+   <option value="ui_notification-ui_notification_ignore">Ignore Invite (hold) []]</option>
+   <option value="ui_notification-ui_notification_decline">Reject Invite []]</option>
+</optgroup>
+<optgroup label="Turret Advanced">
+   <option value="turret_advanced-turret_change_position">@ui_ci_turret_change_position [S]</option>
+   <option value="turret_advanced-turret_limiter_rel_decrease">[PH] Turret - Speed Limiter - Decrease (rel) [A]</option>
+   <option value="turret_advanced-turret_limiter_rel_increase">[PH] Turret - Speed Limiter - Increase (rel) [D]</option>
+   <option value="turret_advanced-turret_change_movement_type">Change Preferred Movement Type [Escape]</option>
+   <option value="turret_advanced-turret_change_firemode">Cycle fire mode (staggered / combined) [B]</option>
+   <option value="turret_advanced-turret_recenter">Recenter Turret (Hold) [C]</option>
+   <option value="turret_advanced-turret_toggle_esp">Toggle E.S.P. on / off [E]</option>
+   <option value="turret_advanced-turret_limiter_toggle">Turret - Speed Limiter - On/Off (Hold/Toggle) [A]</option>
+   <option value="turret_advanced-turret_gyromode">Turret Gyro Stabilization (Toggle) [X]</option>
+</optgroup>
+<optgroup label="Turret Movement">
+   <option value="turret_movement-turret_remote_exit">Exit Remote Turret [Y]</option>
+   <option value="turret_movement-turret_toggle_mouse_mode">Toggle Turret Mouse Movement (VJoy, FPS style) [Q]</option>
+</optgroup>
+<optgroup label="Vehicles - Cockpit">
+   <option value="spaceship_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="spaceship_general-v_self_destruct">Self Destruct [Backspace]</option>
+</optgroup>
+<optgroup label="Vehicles - Mining">
+   <option value="spaceship_mining-v_mining_use_consumable1">Activate Mining Module (Slot 1) [Lalt+1]</option>
+   <option value="spaceship_mining-v_mining_use_consumable2">Activate Mining Module (Slot 2) [Lalt+2]</option>
+   <option value="spaceship_mining-v_mining_use_consumable3">Activate Mining Module (Slot 3) [Lalt+3]</option>
+   <option value="spaceship_mining-v_jettison_volatile_cargo">Jettison Cargo [Lalt+J]</option>
+</optgroup>
+<optgroup label="Vehicles - Missiles">
+   <option value="spaceship_missiles-v_weapon_bombing_toggle_desired_impact_point_hold">[PH] Bombs - Toggle Desired Impact Point (Hold) [T]</option>
+   <option value="spaceship_missiles-v_weapon_cycle_missile_fwd">Cycle Next Missile Type [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_increase_max_missiles">Increase Number of Armed Missiles [G]</option>
+   <option value="spaceship_missiles-v_weapon_toggle_launch_missile">Launch Missiles (Tap) [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_reset_max_missiles">Reset Number of Armed Missiles [Lalt+G]</option>
+</optgroup>
+<optgroup label="Vehicles - Power Triangle Assignment">
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_engine_combined_increase_max">Engines - Increase (Tap) / Set to Max (Hold) [F6]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_reset">Reset Assignments [F8]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_shield_combined_increase_max">Shields - Increase (Tap) / Set to Max (Hold) [F7]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_weapon_combined_increase_max">Weapons - Increase (Tap) / Set to Max (Hold) [F5]</option>
+</optgroup>
+<optgroup label="Vehicles - Seats and Operator Modes">
+   <option value="seat_general-v_eject">Eject [Ralt+Y]</option>
+   <option value="seat_general-v_emergency_exit">Emergency Exit Seat [U+Lshift]</option>
+   <option value="seat_general-v_toggle_mining_mode">Mining Mode (Toggle) [M]</option>
+   <option value="seat_general-v_toggle_missile_mode">Missile Operator Mode (Toggle) [Escape]</option>
+   <option value="seat_general-v_toggle_quantum_mode">Quantum Travel System (Toggle) [B]</option>
+   <option value="seat_general-v_toggle_scan_mode">Scanning Mode (Toggle) [V]</option>
+</optgroup>
+<optgroup label="Vehicles - Shields and Countermeasures">
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_decrease">Decoy - Decrease Burst Size (tap) [Lalt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_increase">Decoy - Increase Burst Size (tap) [Ralt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_launch">Decoy - Launch Burst (tap), Set and Launch Burst (hold) [H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_noise_launch">Noise - Deploy (Tap) [J]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_back">Shield raise level back [Numpad2]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_down">Shield raise level bottom [Numpad1]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_forward">Shield raise level front [Numpad8]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_left">Shield raise level left [Numpad4]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_right">Shield raise level right [Numpad6]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_up">Shield raise level top [Numpad7]</option>
+   <option value="spaceship_defensive-v_shield_reset_level">Shield reset levels [Numpad5]</option>
+</optgroup>
+<optgroup label="Vehicles - Target Cycling">
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_fwd">Cycle Lock - All - Forward [7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_reset">Cycle Lock - All - Reset to Closest [Lalt+7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_fwd">Cycle Lock - Attackers - Forward [4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_reset">Cycle Lock - Attackers - Reset to Closest [Lalt+4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_fwd">Cycle Lock - Friendlies - Forward [6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_reset">Cycle Lock - Friendlies - Reset to Closest [Lalt+6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_fwd">Cycle Lock - Hostiles - Forward [5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_reset">Cycle Lock - Hostiles - Reset to Closest [Lalt+5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_fwd">Cycle Lock - In View - Forward [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_reset">Cycle Lock - In View - Under Reticle [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_fwd">Cycle Lock - Sub-Target - Forward [8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_reset">Cycle Lock - Sub-Target - Reset to Main Target [Lalt+8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_fwd">Cycle Selection - Forward [R]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_reset">Cycle Selection - Reset to Auto [Lalt+R]</option>
+</optgroup>
+<optgroup label="Vehicles - Targeting">
+   <option value="spaceship_targeting-v_look_ahead_enable">Enable / Disable Look Ahead [Lalt+L]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_1">Pin Index 1 - Lock / Unlock Pinned Target [1]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_1">Pin Index 1 - Pin / Unpin Selected Target [Lalt+1]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_2">Pin Index 2 - Lock / Unlock Pinned Target [2]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_2">Pin Index 2 - Pin / Unpin Selected Target [Lalt+2]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_3">Pin Index 3 - Lock / Unlock Pinned Target [3]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_3">Pin Index 3 - Pin / Unpin Selected Target [Lalt+3]</option>
+   <option value="spaceship_targeting-v_target_remove_all_pins">Remove All Pinned Targets [0]</option>
+   <option value="spaceship_targeting-v_target_unlock_selected">Unlock Locked Target [Lalt+T]</option>
+</optgroup>
+<optgroup label="Vehicles - View">
+   <option value="spaceship_view-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="spaceship_view-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="spaceship_view-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+</optgroup>
+<optgroup label="Vehicles - Weapons">
+   <option value="spaceship_weapons-v_weapon_cycle_aimmode">Cycle Gimbal Assist / Standard Gimbal / Gimbal Lock modes [G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_lock_vector">Manual Gimbal Mode - Lock Aim Vector [Ralt+G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_cycle_source">Manual Gimbal Mode - Swap VJoy / Look Direction (Toggle, Hold) [Lalt+G]</option>
+</optgroup>
+<optgroup label="VOIP, FOIP and Head Tracking">
+   <option value="player_input_optical_tracking-foip_cyclechannel">Cycle through audio channels [Decimal]</option>
+   <option value="player_input_optical_tracking-headtrack_enabled">Enable Head Tracking (Toggle) [Divide]</option>
+   <option value="player_input_optical_tracking-foip_recalibrate">FOIP Recalibrate [Multiply]</option>
+   <option value="player_input_optical_tracking-foip_viewownplayer">FOIP Selfie Cam [Subtract]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk">VOIP Push To Talk [Add]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk_proximity">VOIP Push To Talk (Proximity only) [Lalt+Add]</option>
+</optgroup>
+
+
+            </select>
+        </div>
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Dial Press</div>
+            <select class="sdpi-item-value select sdProperty" id="functionpress" oninput="setSettings()">
+
+                <optgroup label="Camera - Advanced Camera Controls">
+   <option value="view_director_mode-view_fstop_in">[PH] Increase DoF [Home]</option>
+   <option value="view_director_mode-view_enable_camview_mode">Advanced Camera Controls Modifier (Hold) [F4]</option>
+   <option value="view_director_mode-view_switch_to_alternative">Advanced Camera Controls Modifier (Hold) [Z]</option>
+   <option value="view_director_mode-view_reset_saved">Clear Saved View [Numpad0]</option>
+   <option value="view_director_mode-view_fstop_out">Decrease DoF [End]</option>
+   <option value="view_director_mode-view_fov_out">Decrease FoV [Subtract]</option>
+   <option value="view_director_mode-view_fov_in">Increase FoV [Add]</option>
+   <option value="view_director_mode-view_load_view_1">Load View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_load_view_2">Load View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_load_view_3">Load View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_load_view_4">Load View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_load_view_5">Load View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_load_view_6">Load View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_load_view_7">Load View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_load_view_8">Load View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_load_view_9">Load View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_restore_defaults">Reset Current View [Multiply]</option>
+   <option value="view_director_mode-view_save_view_1">Save View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_save_view_2">Save View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_save_view_3">Save View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_save_view_4">Save View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_save_view_5">Save View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_save_view_6">Save View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_save_view_7">Save View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_save_view_8">Save View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_save_view_9">Save View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_move_target_X_neg">X Offset Negative [Left]</option>
+   <option value="view_director_mode-view_move_target_X_pos">X Offset Positive [Right]</option>
+   <option value="view_director_mode-view_move_target_Y_neg">Y Offset Negative / Spectator Freecam Focal Point Backward [Down]</option>
+   <option value="view_director_mode-view_move_target_Y_pos">Y Offset Positive / Spectator Freecam Focal Point Forward [Up]</option>
+   <option value="view_director_mode-view_move_target_Z_neg">Z Offset Negative [PageDown]</option>
+   <option value="view_director_mode-view_move_target_Z_pos">Z Offset Positive [PageUp]</option>
+</optgroup>
+<optgroup label="E.V.A - All">
+   <option value="zero_gravity_eva-eva_detach">@ui_CIEVADetach [Y]</option>
+   <option value="zero_gravity_eva-eva_launch">@ui_CIEVALaunch [Space]</option>
+   <option value="zero_gravity_eva-eva_push_back">@ui_CIEVAPushBack [S]</option>
+   <option value="zero_gravity_eva-eva_push_forward">@ui_CIEVAPushForward [W]</option>
+   <option value="zero_gravity_eva-eva_brake">Brake [X]</option>
+   <option value="zero_gravity_eva-eva_toggle_headlook_mode">Freelook (Hold) [Z]</option>
+   <option value="zero_gravity_eva-eva_roll_left">Roll Left [Q]</option>
+   <option value="zero_gravity_eva-eva_roll_right">Roll Right [E]</option>
+   <option value="zero_gravity_eva-eva_strafe_back">Strafe Backward [S]</option>
+   <option value="zero_gravity_eva-eva_strafe_forward">Strafe Forward [W]</option>
+   <option value="zero_gravity_eva-eva_strafe_left">Strafe Left [A]</option>
+   <option value="zero_gravity_eva-eva_strafe_right">Strafe Right [D]</option>
+   <option value="zero_gravity_eva-eva_strafe_up">Strafe Up [Space]</option>
+</optgroup>
+<optgroup label="Electronic Access - Spectator">
+   <option value="spectator-spectate_toggle_hud">Spectator Camera HUD (Toggle) [B]</option>
+   <option value="spectator-spectate_toggle_lock_target">Spectator Camera Lock Target [1]</option>
+   <option value="spectator-spectate_gen_nextmode">Spectator Camera Mode (Next) [F4]</option>
+</optgroup>
+<optgroup label="Flight - Docking">
+   <option value="spaceship_docking-v_invoke_docking">Invoke Docking [N]</option>
+   <option value="spaceship_docking-v_dock_toggle_view">Toggle Docking Camera [0]</option>
+   <option value="spaceship_docking-v_toggle_docking_mode">Toggle Docking Mode [N]</option>
+</optgroup>
+<optgroup label="Flight - HUD">
+   <option value="spaceship_hud-v_starmap">Map [F2]</option>
+   <option value="spaceship_hud-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="spaceship_hud-v_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="spaceship_hud-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Flight - Movement">
+   <option value="spaceship_movement-v_accel_range_down">Acceleration Limiter Decrease [Lalt+Lcontrol+']</option>
+   <option value="spaceship_movement-v_accel_range_up">Acceleration Limiter Increase [']</option>
+   <option value="spaceship_movement-v_accel_range_rel">Acceleration Limiter Up / Down (rel.) [Ralt+Escape]</option>
+   <option value="spaceship_movement-v_autoland">Autoland [N]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_cruise_control">Cruise Control (Toggle) [C]</option>
+   <option value="spaceship_movement-v_transform_cycle">Cycle Configuration [Lalt+K]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_vector_decoupling">Decoupled mode (Toggle) [Lalt+C]</option>
+   <option value="spaceship_movement-v_toggle_landing_system">Landing System (Toggle) [N]</option>
+   <option value="spaceship_movement-v_roll_left">Roll left [Q]</option>
+   <option value="spaceship_movement-v_roll_right">Roll right [E]</option>
+   <option value="spaceship_movement-v_space_brake">Spacebrake [X]</option>
+   <option value="spaceship_movement-v_speed_range_down">Speed Limiter - Decrease [Lalt+Lcontrol+:]</option>
+   <option value="spaceship_movement-v_speed_range_up">Speed Limiter - Increase [:]</option>
+   <option value="spaceship_movement-v_speed_range_rel">Speed Limiter (Rel.) [Escape]</option>
+   <option value="spaceship_movement-v_strafe_left">Strafe left [A]</option>
+   <option value="spaceship_movement-v_strafe_right">Strafe right [D]</option>
+   <option value="spaceship_movement-v_strafe_up">Strafe up [Space]</option>
+   <option value="spaceship_movement-v_strafe_back">Throttle back [S]</option>
+   <option value="spaceship_movement-v_strafe_forward">Throttle forward [W]</option>
+   <option value="spaceship_movement-v_toggle_vtol">Toggle VTOL [K]</option>
+</optgroup>
+<optgroup label="Flight - Power">
+   <option value="spaceship_power-v_power_throttle_down">Decrease Throttle [F9]</option>
+   <option value="spaceship_power-v_power_throttle_min">Decrease Throttle to Min [F9]</option>
+   <option value="spaceship_power-v_power_throttle_up">Increase Throttle [F10]</option>
+   <option value="spaceship_power-v_power_throttle_max">Increase Throttle to Max [F10]</option>
+   <option value="spaceship_power-v_power_toggle">Toggle Power - All [U]</option>
+   <option value="spaceship_power-v_power_toggle_shields">Toggle Power - Shields [O]</option>
+   <option value="spaceship_power-v_power_toggle_thrusters">Toggle Power - Thrusters [I]</option>
+   <option value="spaceship_power-v_power_toggle_weapons">Toggle Power - Weapons [P]</option>
+</optgroup>
+<optgroup label="Flight - Quantum Travel">
+   <option value="spaceship_quantum-v_toggle_qdrive_engagement">Engage Quantum Drive (Hold) [B]</option>
+</optgroup>
+<optgroup label="Flight - Radar">
+   <option value="spaceship_radar-v_invoke_ping">Activate Ping [Tab]</option>
+   <option value="spaceship_radar-v_dec_ping_focus_angle">Decrease Ping Angle [,]</option>
+   <option value="spaceship_radar-v_inc_ping_focus_angle">Increase Ping Angle [.]</option>
+</optgroup>
+<optgroup label="Flight - Target Hailing">
+   <option value="spaceship_target_hailing-v_target_hail">Hail Target [9]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - General">
+   <option value="vehicle_general-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="vehicle_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="vehicle_general-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+   <option value="vehicle_general-v_horn">Horn [Space]</option>
+   <option value="vehicle_general-v_starmap">Map [F2]</option>
+   <option value="vehicle_general-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="vehicle_general-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - Movement">
+   <option value="vehicle_driver-v_mgv_switch_brake_on_idle">@ui_CI_MGV_ToggleBreakOnIdle [V]</option>
+   <option value="vehicle_driver-v_brake">Brake [X]</option>
+   <option value="vehicle_driver-v_move_back">Drive Backward [S]</option>
+   <option value="vehicle_driver-v_move_forward">Drive Forward [W]</option>
+   <option value="vehicle_driver-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="vehicle_driver-v_yaw_left">Turn Left [A]</option>
+   <option value="vehicle_driver-v_yaw_right">Turn Right [D]</option>
+</optgroup>
+<optgroup label="Lights">
+   <option value="lights_controller-v_lights">Headlights (Toggle) [L]</option>
+</optgroup>
+<optgroup label="On Foot - All">
+   <option value="player-weapon_change_firemode">Change Fire Mode [B]</option>
+   <option value="player-customize">Customize Weapon [J]</option>
+   <option value="player-melee_dodgeBack">Dodge Back [S]</option>
+   <option value="player-melee_dodgeLeft">Dodge left [A]</option>
+   <option value="player-melee_dodgeRight">Dodge Right [D]</option>
+   <option value="player-toggle_flashlight">Flashlight (Toggle) [T]</option>
+   <option value="player-force_respawn">Force Re-spawn (E.V.A. / On Foot) [Backspace]</option>
+   <option value="player-weapon_auxiliary_action">FPS Underbarrel Attachment Action [U]</option>
+   <option value="player-free_thirdperson_camera">Free View Camera (Hold) [Z]</option>
+   <option value="player-holster">Holster Weapon [R]</option>
+   <option value="player-jump">Jump [Space]</option>
+   <option value="player-leanleft">Lean Left [Q]</option>
+   <option value="player-leanright">Lean Right [E]</option>
+   <option value="player-v_starmap">Map [F2]</option>
+   <option value="player-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="player-moveback">Move Backwards [S]</option>
+   <option value="player-moveforward">Move Forward [W]</option>
+   <option value="player-moveleft">Move Left [A]</option>
+   <option value="player-moveright">Move Right [D]</option>
+   <option value="player-prone">Prone [X]</option>
+   <option value="incapacitated-incapacitatedRespawn">Regen (while Incapacitated) [Backspace]</option>
+   <option value="player-reload">Reload [R]</option>
+   <option value="player-downedRevivalRequest">Request Rescue (while Incapacitated) [M]</option>
+   <option value="player-pl_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="player-selectUtilityItem">Select Contract Item [6]</option>
+   <option value="player-selectgadget">Select Gadget [4]</option>
+   <option value="player-selectMeleeWeapon">Select Melee [5]</option>
+   <option value="player-selectprimary">Select Primary Weapon [2]</option>
+   <option value="player-selectsecondary">Select Secondary Weapon [3]</option>
+   <option value="player-selectpistol">Select Sidearm [1]</option>
+   <option value="player-thirdperson">Third Person View (Toggle) [F4]</option>
+   <option value="player-selectUnarmedCombat">Unarmed Combat [0]</option>
+   <option value="player-weapon_zeroing_decrease">Weapon Zeroing Decrease [PageDown]</option>
+   <option value="player-weapon_zeroing_increase">Weapon Zeroing Increase / Auto [PageUp]</option>
+   <option value="player-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Quick Keys, Interactions, and Inner Thought">
+   <option value="player_choice-pc_qs_consumables">@ui_Consumable_QuickSelectRadialMenu [C]</option>
+   <option value="player_choice-pc_personal_back">Exit [Numpad0]</option>
+   <option value="player_choice-pc_qs_flight_mode">Flight Mode Select Radial Menu [Lshift+Tab]</option>
+   <option value="player_choice-pc_interaction_mode">Interaction Mode [F]</option>
+   <option value="player_choice-pc_screen_focus_down">MFD Down [S]</option>
+   <option value="player_choice-pc_screen_focus_left">MFD Left [A]</option>
+   <option value="player_choice-pc_screen_focus_right">MFD Right [D]</option>
+   <option value="player_choice-pc_screen_focus_up">MFD Up [W]</option>
+   <option value="player_choice-pc_pit_miningmode_actions">Mining Mode Actions - PIT Category [Lalt+M]</option>
+   <option value="player_choice-pc_pit_inventory">Personal Commodity Inventory (Toggle) [I]</option>
+   <option value="player_choice-pc_personal_thought">Personal Inner Thought (PIT) [F+Escape]</option>
+   <option value="player_choice-pc_qs_grenades">Throwable Select Radial Menu [G]</option>
+   <option value="player_choice-pc_qs_weapons_pistol">Weapon Select Radial Menu [1]</option>
+   <option value="player_choice-pc_qs_weapons_primary">Weapon Select Radial Menu [2]</option>
+   <option value="player_choice-pc_qs_weapons_secondary">Weapon Select Radial Menu [3]</option>
+</optgroup>
+<optgroup label="Social - Emotes">
+   <option value="player_emotes-emote_cs_forward">Forward [Numpad5]</option>
+   <option value="player_emotes-emote_cs_left">Left [Numpad1]</option>
+   <option value="player_emotes-emote_cs_no">No [Numpad6]</option>
+   <option value="player_emotes-emote_cs_right">Right [Numpad3]</option>
+   <option value="player_emotes-emote_cs_stop">Stop [Numpad2]</option>
+   <option value="player_emotes-emote_cs_yes">Yes [Numpad4]</option>
+</optgroup>
+<optgroup label="Social - General">
+   <option value="default-toggle_chat">Chat Window (Toggle) [F12]</option>
+   <option value="default-toggle_contact">CommLink App (Toggle) [F11]</option>
+   <option value="default-pl_exit">Exit seat [Y]</option>
+   <option value="default-respawn">Re-spawn [X]</option>
+</optgroup>
+<optgroup label="Social - Invites">
+   <option value="ui_notification-ui_notification_accept">Accept Invite [[]</option>
+   <option value="ui_notification-ui_notification_ignore">Ignore Invite (hold) []]</option>
+   <option value="ui_notification-ui_notification_decline">Reject Invite []]</option>
+</optgroup>
+<optgroup label="Turret Advanced">
+   <option value="turret_advanced-turret_change_position">@ui_ci_turret_change_position [S]</option>
+   <option value="turret_advanced-turret_limiter_rel_decrease">[PH] Turret - Speed Limiter - Decrease (rel) [A]</option>
+   <option value="turret_advanced-turret_limiter_rel_increase">[PH] Turret - Speed Limiter - Increase (rel) [D]</option>
+   <option value="turret_advanced-turret_change_movement_type">Change Preferred Movement Type [Escape]</option>
+   <option value="turret_advanced-turret_change_firemode">Cycle fire mode (staggered / combined) [B]</option>
+   <option value="turret_advanced-turret_recenter">Recenter Turret (Hold) [C]</option>
+   <option value="turret_advanced-turret_toggle_esp">Toggle E.S.P. on / off [E]</option>
+   <option value="turret_advanced-turret_limiter_toggle">Turret - Speed Limiter - On/Off (Hold/Toggle) [A]</option>
+   <option value="turret_advanced-turret_gyromode">Turret Gyro Stabilization (Toggle) [X]</option>
+</optgroup>
+<optgroup label="Turret Movement">
+   <option value="turret_movement-turret_remote_exit">Exit Remote Turret [Y]</option>
+   <option value="turret_movement-turret_toggle_mouse_mode">Toggle Turret Mouse Movement (VJoy, FPS style) [Q]</option>
+</optgroup>
+<optgroup label="Vehicles - Cockpit">
+   <option value="spaceship_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="spaceship_general-v_self_destruct">Self Destruct [Backspace]</option>
+</optgroup>
+<optgroup label="Vehicles - Mining">
+   <option value="spaceship_mining-v_mining_use_consumable1">Activate Mining Module (Slot 1) [Lalt+1]</option>
+   <option value="spaceship_mining-v_mining_use_consumable2">Activate Mining Module (Slot 2) [Lalt+2]</option>
+   <option value="spaceship_mining-v_mining_use_consumable3">Activate Mining Module (Slot 3) [Lalt+3]</option>
+   <option value="spaceship_mining-v_jettison_volatile_cargo">Jettison Cargo [Lalt+J]</option>
+</optgroup>
+<optgroup label="Vehicles - Missiles">
+   <option value="spaceship_missiles-v_weapon_bombing_toggle_desired_impact_point_hold">[PH] Bombs - Toggle Desired Impact Point (Hold) [T]</option>
+   <option value="spaceship_missiles-v_weapon_cycle_missile_fwd">Cycle Next Missile Type [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_increase_max_missiles">Increase Number of Armed Missiles [G]</option>
+   <option value="spaceship_missiles-v_weapon_toggle_launch_missile">Launch Missiles (Tap) [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_reset_max_missiles">Reset Number of Armed Missiles [Lalt+G]</option>
+</optgroup>
+<optgroup label="Vehicles - Power Triangle Assignment">
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_engine_combined_increase_max">Engines - Increase (Tap) / Set to Max (Hold) [F6]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_reset">Reset Assignments [F8]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_shield_combined_increase_max">Shields - Increase (Tap) / Set to Max (Hold) [F7]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_weapon_combined_increase_max">Weapons - Increase (Tap) / Set to Max (Hold) [F5]</option>
+</optgroup>
+<optgroup label="Vehicles - Seats and Operator Modes">
+   <option value="seat_general-v_eject">Eject [Ralt+Y]</option>
+   <option value="seat_general-v_emergency_exit">Emergency Exit Seat [U+Lshift]</option>
+   <option value="seat_general-v_toggle_mining_mode">Mining Mode (Toggle) [M]</option>
+   <option value="seat_general-v_toggle_missile_mode">Missile Operator Mode (Toggle) [Escape]</option>
+   <option value="seat_general-v_toggle_quantum_mode">Quantum Travel System (Toggle) [B]</option>
+   <option value="seat_general-v_toggle_scan_mode">Scanning Mode (Toggle) [V]</option>
+</optgroup>
+<optgroup label="Vehicles - Shields and Countermeasures">
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_decrease">Decoy - Decrease Burst Size (tap) [Lalt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_increase">Decoy - Increase Burst Size (tap) [Ralt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_launch">Decoy - Launch Burst (tap), Set and Launch Burst (hold) [H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_noise_launch">Noise - Deploy (Tap) [J]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_back">Shield raise level back [Numpad2]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_down">Shield raise level bottom [Numpad1]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_forward">Shield raise level front [Numpad8]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_left">Shield raise level left [Numpad4]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_right">Shield raise level right [Numpad6]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_up">Shield raise level top [Numpad7]</option>
+   <option value="spaceship_defensive-v_shield_reset_level">Shield reset levels [Numpad5]</option>
+</optgroup>
+<optgroup label="Vehicles - Target Cycling">
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_fwd">Cycle Lock - All - Forward [7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_reset">Cycle Lock - All - Reset to Closest [Lalt+7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_fwd">Cycle Lock - Attackers - Forward [4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_reset">Cycle Lock - Attackers - Reset to Closest [Lalt+4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_fwd">Cycle Lock - Friendlies - Forward [6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_reset">Cycle Lock - Friendlies - Reset to Closest [Lalt+6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_fwd">Cycle Lock - Hostiles - Forward [5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_reset">Cycle Lock - Hostiles - Reset to Closest [Lalt+5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_fwd">Cycle Lock - In View - Forward [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_reset">Cycle Lock - In View - Under Reticle [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_fwd">Cycle Lock - Sub-Target - Forward [8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_reset">Cycle Lock - Sub-Target - Reset to Main Target [Lalt+8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_fwd">Cycle Selection - Forward [R]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_reset">Cycle Selection - Reset to Auto [Lalt+R]</option>
+</optgroup>
+<optgroup label="Vehicles - Targeting">
+   <option value="spaceship_targeting-v_look_ahead_enable">Enable / Disable Look Ahead [Lalt+L]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_1">Pin Index 1 - Lock / Unlock Pinned Target [1]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_1">Pin Index 1 - Pin / Unpin Selected Target [Lalt+1]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_2">Pin Index 2 - Lock / Unlock Pinned Target [2]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_2">Pin Index 2 - Pin / Unpin Selected Target [Lalt+2]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_3">Pin Index 3 - Lock / Unlock Pinned Target [3]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_3">Pin Index 3 - Pin / Unpin Selected Target [Lalt+3]</option>
+   <option value="spaceship_targeting-v_target_remove_all_pins">Remove All Pinned Targets [0]</option>
+   <option value="spaceship_targeting-v_target_unlock_selected">Unlock Locked Target [Lalt+T]</option>
+</optgroup>
+<optgroup label="Vehicles - View">
+   <option value="spaceship_view-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="spaceship_view-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="spaceship_view-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+</optgroup>
+<optgroup label="Vehicles - Weapons">
+   <option value="spaceship_weapons-v_weapon_cycle_aimmode">Cycle Gimbal Assist / Standard Gimbal / Gimbal Lock modes [G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_lock_vector">Manual Gimbal Mode - Lock Aim Vector [Ralt+G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_cycle_source">Manual Gimbal Mode - Swap VJoy / Look Direction (Toggle, Hold) [Lalt+G]</option>
+</optgroup>
+<optgroup label="VOIP, FOIP and Head Tracking">
+   <option value="player_input_optical_tracking-foip_cyclechannel">Cycle through audio channels [Decimal]</option>
+   <option value="player_input_optical_tracking-headtrack_enabled">Enable Head Tracking (Toggle) [Divide]</option>
+   <option value="player_input_optical_tracking-foip_recalibrate">FOIP Recalibrate [Multiply]</option>
+   <option value="player_input_optical_tracking-foip_viewownplayer">FOIP Selfie Cam [Subtract]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk">VOIP Push To Talk [Add]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk_proximity">VOIP Push To Talk (Proximity only) [Lalt+Add]</option>
+</optgroup>
+
+
+            </select>
+        </div>
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Touch Press</div>
+            <select class="sdpi-item-value select sdProperty" id="functiontouchpress" oninput="setSettings()">
+
+                <optgroup label="Camera - Advanced Camera Controls">
+   <option value="view_director_mode-view_fstop_in">[PH] Increase DoF [Home]</option>
+   <option value="view_director_mode-view_enable_camview_mode">Advanced Camera Controls Modifier (Hold) [F4]</option>
+   <option value="view_director_mode-view_switch_to_alternative">Advanced Camera Controls Modifier (Hold) [Z]</option>
+   <option value="view_director_mode-view_reset_saved">Clear Saved View [Numpad0]</option>
+   <option value="view_director_mode-view_fstop_out">Decrease DoF [End]</option>
+   <option value="view_director_mode-view_fov_out">Decrease FoV [Subtract]</option>
+   <option value="view_director_mode-view_fov_in">Increase FoV [Add]</option>
+   <option value="view_director_mode-view_load_view_1">Load View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_load_view_2">Load View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_load_view_3">Load View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_load_view_4">Load View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_load_view_5">Load View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_load_view_6">Load View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_load_view_7">Load View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_load_view_8">Load View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_load_view_9">Load View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_restore_defaults">Reset Current View [Multiply]</option>
+   <option value="view_director_mode-view_save_view_1">Save View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_save_view_2">Save View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_save_view_3">Save View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_save_view_4">Save View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_save_view_5">Save View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_save_view_6">Save View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_save_view_7">Save View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_save_view_8">Save View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_save_view_9">Save View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_move_target_X_neg">X Offset Negative [Left]</option>
+   <option value="view_director_mode-view_move_target_X_pos">X Offset Positive [Right]</option>
+   <option value="view_director_mode-view_move_target_Y_neg">Y Offset Negative / Spectator Freecam Focal Point Backward [Down]</option>
+   <option value="view_director_mode-view_move_target_Y_pos">Y Offset Positive / Spectator Freecam Focal Point Forward [Up]</option>
+   <option value="view_director_mode-view_move_target_Z_neg">Z Offset Negative [PageDown]</option>
+   <option value="view_director_mode-view_move_target_Z_pos">Z Offset Positive [PageUp]</option>
+</optgroup>
+<optgroup label="E.V.A - All">
+   <option value="zero_gravity_eva-eva_detach">@ui_CIEVADetach [Y]</option>
+   <option value="zero_gravity_eva-eva_launch">@ui_CIEVALaunch [Space]</option>
+   <option value="zero_gravity_eva-eva_push_back">@ui_CIEVAPushBack [S]</option>
+   <option value="zero_gravity_eva-eva_push_forward">@ui_CIEVAPushForward [W]</option>
+   <option value="zero_gravity_eva-eva_brake">Brake [X]</option>
+   <option value="zero_gravity_eva-eva_toggle_headlook_mode">Freelook (Hold) [Z]</option>
+   <option value="zero_gravity_eva-eva_roll_left">Roll Left [Q]</option>
+   <option value="zero_gravity_eva-eva_roll_right">Roll Right [E]</option>
+   <option value="zero_gravity_eva-eva_strafe_back">Strafe Backward [S]</option>
+   <option value="zero_gravity_eva-eva_strafe_forward">Strafe Forward [W]</option>
+   <option value="zero_gravity_eva-eva_strafe_left">Strafe Left [A]</option>
+   <option value="zero_gravity_eva-eva_strafe_right">Strafe Right [D]</option>
+   <option value="zero_gravity_eva-eva_strafe_up">Strafe Up [Space]</option>
+</optgroup>
+<optgroup label="Electronic Access - Spectator">
+   <option value="spectator-spectate_toggle_hud">Spectator Camera HUD (Toggle) [B]</option>
+   <option value="spectator-spectate_toggle_lock_target">Spectator Camera Lock Target [1]</option>
+   <option value="spectator-spectate_gen_nextmode">Spectator Camera Mode (Next) [F4]</option>
+</optgroup>
+<optgroup label="Flight - Docking">
+   <option value="spaceship_docking-v_invoke_docking">Invoke Docking [N]</option>
+   <option value="spaceship_docking-v_dock_toggle_view">Toggle Docking Camera [0]</option>
+   <option value="spaceship_docking-v_toggle_docking_mode">Toggle Docking Mode [N]</option>
+</optgroup>
+<optgroup label="Flight - HUD">
+   <option value="spaceship_hud-v_starmap">Map [F2]</option>
+   <option value="spaceship_hud-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="spaceship_hud-v_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="spaceship_hud-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Flight - Movement">
+   <option value="spaceship_movement-v_accel_range_down">Acceleration Limiter Decrease [Lalt+Lcontrol+']</option>
+   <option value="spaceship_movement-v_accel_range_up">Acceleration Limiter Increase [']</option>
+   <option value="spaceship_movement-v_accel_range_rel">Acceleration Limiter Up / Down (rel.) [Ralt+Escape]</option>
+   <option value="spaceship_movement-v_autoland">Autoland [N]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_cruise_control">Cruise Control (Toggle) [C]</option>
+   <option value="spaceship_movement-v_transform_cycle">Cycle Configuration [Lalt+K]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_vector_decoupling">Decoupled mode (Toggle) [Lalt+C]</option>
+   <option value="spaceship_movement-v_toggle_landing_system">Landing System (Toggle) [N]</option>
+   <option value="spaceship_movement-v_roll_left">Roll left [Q]</option>
+   <option value="spaceship_movement-v_roll_right">Roll right [E]</option>
+   <option value="spaceship_movement-v_space_brake">Spacebrake [X]</option>
+   <option value="spaceship_movement-v_speed_range_down">Speed Limiter - Decrease [Lalt+Lcontrol+:]</option>
+   <option value="spaceship_movement-v_speed_range_up">Speed Limiter - Increase [:]</option>
+   <option value="spaceship_movement-v_speed_range_rel">Speed Limiter (Rel.) [Escape]</option>
+   <option value="spaceship_movement-v_strafe_left">Strafe left [A]</option>
+   <option value="spaceship_movement-v_strafe_right">Strafe right [D]</option>
+   <option value="spaceship_movement-v_strafe_up">Strafe up [Space]</option>
+   <option value="spaceship_movement-v_strafe_back">Throttle back [S]</option>
+   <option value="spaceship_movement-v_strafe_forward">Throttle forward [W]</option>
+   <option value="spaceship_movement-v_toggle_vtol">Toggle VTOL [K]</option>
+</optgroup>
+<optgroup label="Flight - Power">
+   <option value="spaceship_power-v_power_throttle_down">Decrease Throttle [F9]</option>
+   <option value="spaceship_power-v_power_throttle_min">Decrease Throttle to Min [F9]</option>
+   <option value="spaceship_power-v_power_throttle_up">Increase Throttle [F10]</option>
+   <option value="spaceship_power-v_power_throttle_max">Increase Throttle to Max [F10]</option>
+   <option value="spaceship_power-v_power_toggle">Toggle Power - All [U]</option>
+   <option value="spaceship_power-v_power_toggle_shields">Toggle Power - Shields [O]</option>
+   <option value="spaceship_power-v_power_toggle_thrusters">Toggle Power - Thrusters [I]</option>
+   <option value="spaceship_power-v_power_toggle_weapons">Toggle Power - Weapons [P]</option>
+</optgroup>
+<optgroup label="Flight - Quantum Travel">
+   <option value="spaceship_quantum-v_toggle_qdrive_engagement">Engage Quantum Drive (Hold) [B]</option>
+</optgroup>
+<optgroup label="Flight - Radar">
+   <option value="spaceship_radar-v_invoke_ping">Activate Ping [Tab]</option>
+   <option value="spaceship_radar-v_dec_ping_focus_angle">Decrease Ping Angle [,]</option>
+   <option value="spaceship_radar-v_inc_ping_focus_angle">Increase Ping Angle [.]</option>
+</optgroup>
+<optgroup label="Flight - Target Hailing">
+   <option value="spaceship_target_hailing-v_target_hail">Hail Target [9]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - General">
+   <option value="vehicle_general-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="vehicle_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="vehicle_general-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+   <option value="vehicle_general-v_horn">Horn [Space]</option>
+   <option value="vehicle_general-v_starmap">Map [F2]</option>
+   <option value="vehicle_general-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="vehicle_general-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - Movement">
+   <option value="vehicle_driver-v_mgv_switch_brake_on_idle">@ui_CI_MGV_ToggleBreakOnIdle [V]</option>
+   <option value="vehicle_driver-v_brake">Brake [X]</option>
+   <option value="vehicle_driver-v_move_back">Drive Backward [S]</option>
+   <option value="vehicle_driver-v_move_forward">Drive Forward [W]</option>
+   <option value="vehicle_driver-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="vehicle_driver-v_yaw_left">Turn Left [A]</option>
+   <option value="vehicle_driver-v_yaw_right">Turn Right [D]</option>
+</optgroup>
+<optgroup label="Lights">
+   <option value="lights_controller-v_lights">Headlights (Toggle) [L]</option>
+</optgroup>
+<optgroup label="On Foot - All">
+   <option value="player-weapon_change_firemode">Change Fire Mode [B]</option>
+   <option value="player-customize">Customize Weapon [J]</option>
+   <option value="player-melee_dodgeBack">Dodge Back [S]</option>
+   <option value="player-melee_dodgeLeft">Dodge left [A]</option>
+   <option value="player-melee_dodgeRight">Dodge Right [D]</option>
+   <option value="player-toggle_flashlight">Flashlight (Toggle) [T]</option>
+   <option value="player-force_respawn">Force Re-spawn (E.V.A. / On Foot) [Backspace]</option>
+   <option value="player-weapon_auxiliary_action">FPS Underbarrel Attachment Action [U]</option>
+   <option value="player-free_thirdperson_camera">Free View Camera (Hold) [Z]</option>
+   <option value="player-holster">Holster Weapon [R]</option>
+   <option value="player-jump">Jump [Space]</option>
+   <option value="player-leanleft">Lean Left [Q]</option>
+   <option value="player-leanright">Lean Right [E]</option>
+   <option value="player-v_starmap">Map [F2]</option>
+   <option value="player-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="player-moveback">Move Backwards [S]</option>
+   <option value="player-moveforward">Move Forward [W]</option>
+   <option value="player-moveleft">Move Left [A]</option>
+   <option value="player-moveright">Move Right [D]</option>
+   <option value="player-prone">Prone [X]</option>
+   <option value="incapacitated-incapacitatedRespawn">Regen (while Incapacitated) [Backspace]</option>
+   <option value="player-reload">Reload [R]</option>
+   <option value="player-downedRevivalRequest">Request Rescue (while Incapacitated) [M]</option>
+   <option value="player-pl_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="player-selectUtilityItem">Select Contract Item [6]</option>
+   <option value="player-selectgadget">Select Gadget [4]</option>
+   <option value="player-selectMeleeWeapon">Select Melee [5]</option>
+   <option value="player-selectprimary">Select Primary Weapon [2]</option>
+   <option value="player-selectsecondary">Select Secondary Weapon [3]</option>
+   <option value="player-selectpistol">Select Sidearm [1]</option>
+   <option value="player-thirdperson">Third Person View (Toggle) [F4]</option>
+   <option value="player-selectUnarmedCombat">Unarmed Combat [0]</option>
+   <option value="player-weapon_zeroing_decrease">Weapon Zeroing Decrease [PageDown]</option>
+   <option value="player-weapon_zeroing_increase">Weapon Zeroing Increase / Auto [PageUp]</option>
+   <option value="player-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Quick Keys, Interactions, and Inner Thought">
+   <option value="player_choice-pc_qs_consumables">@ui_Consumable_QuickSelectRadialMenu [C]</option>
+   <option value="player_choice-pc_personal_back">Exit [Numpad0]</option>
+   <option value="player_choice-pc_qs_flight_mode">Flight Mode Select Radial Menu [Lshift+Tab]</option>
+   <option value="player_choice-pc_interaction_mode">Interaction Mode [F]</option>
+   <option value="player_choice-pc_screen_focus_down">MFD Down [S]</option>
+   <option value="player_choice-pc_screen_focus_left">MFD Left [A]</option>
+   <option value="player_choice-pc_screen_focus_right">MFD Right [D]</option>
+   <option value="player_choice-pc_screen_focus_up">MFD Up [W]</option>
+   <option value="player_choice-pc_pit_miningmode_actions">Mining Mode Actions - PIT Category [Lalt+M]</option>
+   <option value="player_choice-pc_pit_inventory">Personal Commodity Inventory (Toggle) [I]</option>
+   <option value="player_choice-pc_personal_thought">Personal Inner Thought (PIT) [F+Escape]</option>
+   <option value="player_choice-pc_qs_grenades">Throwable Select Radial Menu [G]</option>
+   <option value="player_choice-pc_qs_weapons_pistol">Weapon Select Radial Menu [1]</option>
+   <option value="player_choice-pc_qs_weapons_primary">Weapon Select Radial Menu [2]</option>
+   <option value="player_choice-pc_qs_weapons_secondary">Weapon Select Radial Menu [3]</option>
+</optgroup>
+<optgroup label="Social - Emotes">
+   <option value="player_emotes-emote_cs_forward">Forward [Numpad5]</option>
+   <option value="player_emotes-emote_cs_left">Left [Numpad1]</option>
+   <option value="player_emotes-emote_cs_no">No [Numpad6]</option>
+   <option value="player_emotes-emote_cs_right">Right [Numpad3]</option>
+   <option value="player_emotes-emote_cs_stop">Stop [Numpad2]</option>
+   <option value="player_emotes-emote_cs_yes">Yes [Numpad4]</option>
+</optgroup>
+<optgroup label="Social - General">
+   <option value="default-toggle_chat">Chat Window (Toggle) [F12]</option>
+   <option value="default-toggle_contact">CommLink App (Toggle) [F11]</option>
+   <option value="default-pl_exit">Exit seat [Y]</option>
+   <option value="default-respawn">Re-spawn [X]</option>
+</optgroup>
+<optgroup label="Social - Invites">
+   <option value="ui_notification-ui_notification_accept">Accept Invite [[]</option>
+   <option value="ui_notification-ui_notification_ignore">Ignore Invite (hold) []]</option>
+   <option value="ui_notification-ui_notification_decline">Reject Invite []]</option>
+</optgroup>
+<optgroup label="Turret Advanced">
+   <option value="turret_advanced-turret_change_position">@ui_ci_turret_change_position [S]</option>
+   <option value="turret_advanced-turret_limiter_rel_decrease">[PH] Turret - Speed Limiter - Decrease (rel) [A]</option>
+   <option value="turret_advanced-turret_limiter_rel_increase">[PH] Turret - Speed Limiter - Increase (rel) [D]</option>
+   <option value="turret_advanced-turret_change_movement_type">Change Preferred Movement Type [Escape]</option>
+   <option value="turret_advanced-turret_change_firemode">Cycle fire mode (staggered / combined) [B]</option>
+   <option value="turret_advanced-turret_recenter">Recenter Turret (Hold) [C]</option>
+   <option value="turret_advanced-turret_toggle_esp">Toggle E.S.P. on / off [E]</option>
+   <option value="turret_advanced-turret_limiter_toggle">Turret - Speed Limiter - On/Off (Hold/Toggle) [A]</option>
+   <option value="turret_advanced-turret_gyromode">Turret Gyro Stabilization (Toggle) [X]</option>
+</optgroup>
+<optgroup label="Turret Movement">
+   <option value="turret_movement-turret_remote_exit">Exit Remote Turret [Y]</option>
+   <option value="turret_movement-turret_toggle_mouse_mode">Toggle Turret Mouse Movement (VJoy, FPS style) [Q]</option>
+</optgroup>
+<optgroup label="Vehicles - Cockpit">
+   <option value="spaceship_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="spaceship_general-v_self_destruct">Self Destruct [Backspace]</option>
+</optgroup>
+<optgroup label="Vehicles - Mining">
+   <option value="spaceship_mining-v_mining_use_consumable1">Activate Mining Module (Slot 1) [Lalt+1]</option>
+   <option value="spaceship_mining-v_mining_use_consumable2">Activate Mining Module (Slot 2) [Lalt+2]</option>
+   <option value="spaceship_mining-v_mining_use_consumable3">Activate Mining Module (Slot 3) [Lalt+3]</option>
+   <option value="spaceship_mining-v_jettison_volatile_cargo">Jettison Cargo [Lalt+J]</option>
+</optgroup>
+<optgroup label="Vehicles - Missiles">
+   <option value="spaceship_missiles-v_weapon_bombing_toggle_desired_impact_point_hold">[PH] Bombs - Toggle Desired Impact Point (Hold) [T]</option>
+   <option value="spaceship_missiles-v_weapon_cycle_missile_fwd">Cycle Next Missile Type [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_increase_max_missiles">Increase Number of Armed Missiles [G]</option>
+   <option value="spaceship_missiles-v_weapon_toggle_launch_missile">Launch Missiles (Tap) [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_reset_max_missiles">Reset Number of Armed Missiles [Lalt+G]</option>
+</optgroup>
+<optgroup label="Vehicles - Power Triangle Assignment">
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_engine_combined_increase_max">Engines - Increase (Tap) / Set to Max (Hold) [F6]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_reset">Reset Assignments [F8]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_shield_combined_increase_max">Shields - Increase (Tap) / Set to Max (Hold) [F7]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_weapon_combined_increase_max">Weapons - Increase (Tap) / Set to Max (Hold) [F5]</option>
+</optgroup>
+<optgroup label="Vehicles - Seats and Operator Modes">
+   <option value="seat_general-v_eject">Eject [Ralt+Y]</option>
+   <option value="seat_general-v_emergency_exit">Emergency Exit Seat [U+Lshift]</option>
+   <option value="seat_general-v_toggle_mining_mode">Mining Mode (Toggle) [M]</option>
+   <option value="seat_general-v_toggle_missile_mode">Missile Operator Mode (Toggle) [Escape]</option>
+   <option value="seat_general-v_toggle_quantum_mode">Quantum Travel System (Toggle) [B]</option>
+   <option value="seat_general-v_toggle_scan_mode">Scanning Mode (Toggle) [V]</option>
+</optgroup>
+<optgroup label="Vehicles - Shields and Countermeasures">
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_decrease">Decoy - Decrease Burst Size (tap) [Lalt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_increase">Decoy - Increase Burst Size (tap) [Ralt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_launch">Decoy - Launch Burst (tap), Set and Launch Burst (hold) [H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_noise_launch">Noise - Deploy (Tap) [J]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_back">Shield raise level back [Numpad2]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_down">Shield raise level bottom [Numpad1]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_forward">Shield raise level front [Numpad8]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_left">Shield raise level left [Numpad4]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_right">Shield raise level right [Numpad6]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_up">Shield raise level top [Numpad7]</option>
+   <option value="spaceship_defensive-v_shield_reset_level">Shield reset levels [Numpad5]</option>
+</optgroup>
+<optgroup label="Vehicles - Target Cycling">
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_fwd">Cycle Lock - All - Forward [7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_reset">Cycle Lock - All - Reset to Closest [Lalt+7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_fwd">Cycle Lock - Attackers - Forward [4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_reset">Cycle Lock - Attackers - Reset to Closest [Lalt+4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_fwd">Cycle Lock - Friendlies - Forward [6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_reset">Cycle Lock - Friendlies - Reset to Closest [Lalt+6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_fwd">Cycle Lock - Hostiles - Forward [5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_reset">Cycle Lock - Hostiles - Reset to Closest [Lalt+5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_fwd">Cycle Lock - In View - Forward [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_reset">Cycle Lock - In View - Under Reticle [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_fwd">Cycle Lock - Sub-Target - Forward [8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_reset">Cycle Lock - Sub-Target - Reset to Main Target [Lalt+8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_fwd">Cycle Selection - Forward [R]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_reset">Cycle Selection - Reset to Auto [Lalt+R]</option>
+</optgroup>
+<optgroup label="Vehicles - Targeting">
+   <option value="spaceship_targeting-v_look_ahead_enable">Enable / Disable Look Ahead [Lalt+L]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_1">Pin Index 1 - Lock / Unlock Pinned Target [1]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_1">Pin Index 1 - Pin / Unpin Selected Target [Lalt+1]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_2">Pin Index 2 - Lock / Unlock Pinned Target [2]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_2">Pin Index 2 - Pin / Unpin Selected Target [Lalt+2]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_3">Pin Index 3 - Lock / Unlock Pinned Target [3]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_3">Pin Index 3 - Pin / Unpin Selected Target [Lalt+3]</option>
+   <option value="spaceship_targeting-v_target_remove_all_pins">Remove All Pinned Targets [0]</option>
+   <option value="spaceship_targeting-v_target_unlock_selected">Unlock Locked Target [Lalt+T]</option>
+</optgroup>
+<optgroup label="Vehicles - View">
+   <option value="spaceship_view-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="spaceship_view-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="spaceship_view-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+</optgroup>
+<optgroup label="Vehicles - Weapons">
+   <option value="spaceship_weapons-v_weapon_cycle_aimmode">Cycle Gimbal Assist / Standard Gimbal / Gimbal Lock modes [G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_lock_vector">Manual Gimbal Mode - Lock Aim Vector [Ralt+G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_cycle_source">Manual Gimbal Mode - Swap VJoy / Look Direction (Toggle, Hold) [Lalt+G]</option>
+</optgroup>
+<optgroup label="VOIP, FOIP and Head Tracking">
+   <option value="player_input_optical_tracking-foip_cyclechannel">Cycle through audio channels [Decimal]</option>
+   <option value="player_input_optical_tracking-headtrack_enabled">Enable Head Tracking (Toggle) [Divide]</option>
+   <option value="player_input_optical_tracking-foip_recalibrate">FOIP Recalibrate [Multiply]</option>
+   <option value="player_input_optical_tracking-foip_viewownplayer">FOIP Selfie Cam [Subtract]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk">VOIP Push To Talk [Add]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk_proximity">VOIP Push To Talk (Proximity only) [Lalt+Add]</option>
+</optgroup>
+
+
+            </select>
+        </div>
+
+        <div class="sdpi-item" id="select_single">
+            <div class="sdpi-item-label">Touch Longpress</div>
+            <select class="sdpi-item-value select sdProperty" id="functiontouchlongpress" oninput="setSettings()">
+
+                <optgroup label="Camera - Advanced Camera Controls">
+   <option value="view_director_mode-view_fstop_in">[PH] Increase DoF [Home]</option>
+   <option value="view_director_mode-view_enable_camview_mode">Advanced Camera Controls Modifier (Hold) [F4]</option>
+   <option value="view_director_mode-view_switch_to_alternative">Advanced Camera Controls Modifier (Hold) [Z]</option>
+   <option value="view_director_mode-view_reset_saved">Clear Saved View [Numpad0]</option>
+   <option value="view_director_mode-view_fstop_out">Decrease DoF [End]</option>
+   <option value="view_director_mode-view_fov_out">Decrease FoV [Subtract]</option>
+   <option value="view_director_mode-view_fov_in">Increase FoV [Add]</option>
+   <option value="view_director_mode-view_load_view_1">Load View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_load_view_2">Load View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_load_view_3">Load View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_load_view_4">Load View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_load_view_5">Load View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_load_view_6">Load View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_load_view_7">Load View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_load_view_8">Load View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_load_view_9">Load View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_restore_defaults">Reset Current View [Multiply]</option>
+   <option value="view_director_mode-view_save_view_1">Save View 1 [Numpad1]</option>
+   <option value="view_director_mode-view_save_view_2">Save View 2 [Numpad2]</option>
+   <option value="view_director_mode-view_save_view_3">Save View 3 [Numpad3]</option>
+   <option value="view_director_mode-view_save_view_4">Save View 4 [Numpad4]</option>
+   <option value="view_director_mode-view_save_view_5">Save View 5 [Numpad5]</option>
+   <option value="view_director_mode-view_save_view_6">Save View 6 [Numpad6]</option>
+   <option value="view_director_mode-view_save_view_7">Save View 7 [Numpad7]</option>
+   <option value="view_director_mode-view_save_view_8">Save View 8 [Numpad8]</option>
+   <option value="view_director_mode-view_save_view_9">Save View 9 [Numpad9]</option>
+   <option value="view_director_mode-view_move_target_X_neg">X Offset Negative [Left]</option>
+   <option value="view_director_mode-view_move_target_X_pos">X Offset Positive [Right]</option>
+   <option value="view_director_mode-view_move_target_Y_neg">Y Offset Negative / Spectator Freecam Focal Point Backward [Down]</option>
+   <option value="view_director_mode-view_move_target_Y_pos">Y Offset Positive / Spectator Freecam Focal Point Forward [Up]</option>
+   <option value="view_director_mode-view_move_target_Z_neg">Z Offset Negative [PageDown]</option>
+   <option value="view_director_mode-view_move_target_Z_pos">Z Offset Positive [PageUp]</option>
+</optgroup>
+<optgroup label="E.V.A - All">
+   <option value="zero_gravity_eva-eva_detach">@ui_CIEVADetach [Y]</option>
+   <option value="zero_gravity_eva-eva_launch">@ui_CIEVALaunch [Space]</option>
+   <option value="zero_gravity_eva-eva_push_back">@ui_CIEVAPushBack [S]</option>
+   <option value="zero_gravity_eva-eva_push_forward">@ui_CIEVAPushForward [W]</option>
+   <option value="zero_gravity_eva-eva_brake">Brake [X]</option>
+   <option value="zero_gravity_eva-eva_toggle_headlook_mode">Freelook (Hold) [Z]</option>
+   <option value="zero_gravity_eva-eva_roll_left">Roll Left [Q]</option>
+   <option value="zero_gravity_eva-eva_roll_right">Roll Right [E]</option>
+   <option value="zero_gravity_eva-eva_strafe_back">Strafe Backward [S]</option>
+   <option value="zero_gravity_eva-eva_strafe_forward">Strafe Forward [W]</option>
+   <option value="zero_gravity_eva-eva_strafe_left">Strafe Left [A]</option>
+   <option value="zero_gravity_eva-eva_strafe_right">Strafe Right [D]</option>
+   <option value="zero_gravity_eva-eva_strafe_up">Strafe Up [Space]</option>
+</optgroup>
+<optgroup label="Electronic Access - Spectator">
+   <option value="spectator-spectate_toggle_hud">Spectator Camera HUD (Toggle) [B]</option>
+   <option value="spectator-spectate_toggle_lock_target">Spectator Camera Lock Target [1]</option>
+   <option value="spectator-spectate_gen_nextmode">Spectator Camera Mode (Next) [F4]</option>
+</optgroup>
+<optgroup label="Flight - Docking">
+   <option value="spaceship_docking-v_invoke_docking">Invoke Docking [N]</option>
+   <option value="spaceship_docking-v_dock_toggle_view">Toggle Docking Camera [0]</option>
+   <option value="spaceship_docking-v_toggle_docking_mode">Toggle Docking Mode [N]</option>
+</optgroup>
+<optgroup label="Flight - HUD">
+   <option value="spaceship_hud-v_starmap">Map [F2]</option>
+   <option value="spaceship_hud-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="spaceship_hud-v_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="spaceship_hud-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Flight - Movement">
+   <option value="spaceship_movement-v_accel_range_down">Acceleration Limiter Decrease [Lalt+Lcontrol+']</option>
+   <option value="spaceship_movement-v_accel_range_up">Acceleration Limiter Increase [']</option>
+   <option value="spaceship_movement-v_accel_range_rel">Acceleration Limiter Up / Down (rel.) [Ralt+Escape]</option>
+   <option value="spaceship_movement-v_autoland">Autoland [N]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_cruise_control">Cruise Control (Toggle) [C]</option>
+   <option value="spaceship_movement-v_transform_cycle">Cycle Configuration [Lalt+K]</option>
+   <option value="spaceship_movement-v_ifcs_toggle_vector_decoupling">Decoupled mode (Toggle) [Lalt+C]</option>
+   <option value="spaceship_movement-v_toggle_landing_system">Landing System (Toggle) [N]</option>
+   <option value="spaceship_movement-v_roll_left">Roll left [Q]</option>
+   <option value="spaceship_movement-v_roll_right">Roll right [E]</option>
+   <option value="spaceship_movement-v_space_brake">Spacebrake [X]</option>
+   <option value="spaceship_movement-v_speed_range_down">Speed Limiter - Decrease [Lalt+Lcontrol+:]</option>
+   <option value="spaceship_movement-v_speed_range_up">Speed Limiter - Increase [:]</option>
+   <option value="spaceship_movement-v_speed_range_rel">Speed Limiter (Rel.) [Escape]</option>
+   <option value="spaceship_movement-v_strafe_left">Strafe left [A]</option>
+   <option value="spaceship_movement-v_strafe_right">Strafe right [D]</option>
+   <option value="spaceship_movement-v_strafe_up">Strafe up [Space]</option>
+   <option value="spaceship_movement-v_strafe_back">Throttle back [S]</option>
+   <option value="spaceship_movement-v_strafe_forward">Throttle forward [W]</option>
+   <option value="spaceship_movement-v_toggle_vtol">Toggle VTOL [K]</option>
+</optgroup>
+<optgroup label="Flight - Power">
+   <option value="spaceship_power-v_power_throttle_down">Decrease Throttle [F9]</option>
+   <option value="spaceship_power-v_power_throttle_min">Decrease Throttle to Min [F9]</option>
+   <option value="spaceship_power-v_power_throttle_up">Increase Throttle [F10]</option>
+   <option value="spaceship_power-v_power_throttle_max">Increase Throttle to Max [F10]</option>
+   <option value="spaceship_power-v_power_toggle">Toggle Power - All [U]</option>
+   <option value="spaceship_power-v_power_toggle_shields">Toggle Power - Shields [O]</option>
+   <option value="spaceship_power-v_power_toggle_thrusters">Toggle Power - Thrusters [I]</option>
+   <option value="spaceship_power-v_power_toggle_weapons">Toggle Power - Weapons [P]</option>
+</optgroup>
+<optgroup label="Flight - Quantum Travel">
+   <option value="spaceship_quantum-v_toggle_qdrive_engagement">Engage Quantum Drive (Hold) [B]</option>
+</optgroup>
+<optgroup label="Flight - Radar">
+   <option value="spaceship_radar-v_invoke_ping">Activate Ping [Tab]</option>
+   <option value="spaceship_radar-v_dec_ping_focus_angle">Decrease Ping Angle [,]</option>
+   <option value="spaceship_radar-v_inc_ping_focus_angle">Increase Ping Angle [.]</option>
+</optgroup>
+<optgroup label="Flight - Target Hailing">
+   <option value="spaceship_target_hailing-v_target_hail">Hail Target [9]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - General">
+   <option value="vehicle_general-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="vehicle_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="vehicle_general-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+   <option value="vehicle_general-v_horn">Horn [Space]</option>
+   <option value="vehicle_general-v_starmap">Map [F2]</option>
+   <option value="vehicle_general-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="vehicle_general-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Ground Vehicle - Movement">
+   <option value="vehicle_driver-v_mgv_switch_brake_on_idle">@ui_CI_MGV_ToggleBreakOnIdle [V]</option>
+   <option value="vehicle_driver-v_brake">Brake [X]</option>
+   <option value="vehicle_driver-v_move_back">Drive Backward [S]</option>
+   <option value="vehicle_driver-v_move_forward">Drive Forward [W]</option>
+   <option value="vehicle_driver-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="vehicle_driver-v_yaw_left">Turn Left [A]</option>
+   <option value="vehicle_driver-v_yaw_right">Turn Right [D]</option>
+</optgroup>
+<optgroup label="Lights">
+   <option value="lights_controller-v_lights">Headlights (Toggle) [L]</option>
+</optgroup>
+<optgroup label="On Foot - All">
+   <option value="player-weapon_change_firemode">Change Fire Mode [B]</option>
+   <option value="player-customize">Customize Weapon [J]</option>
+   <option value="player-melee_dodgeBack">Dodge Back [S]</option>
+   <option value="player-melee_dodgeLeft">Dodge left [A]</option>
+   <option value="player-melee_dodgeRight">Dodge Right [D]</option>
+   <option value="player-toggle_flashlight">Flashlight (Toggle) [T]</option>
+   <option value="player-force_respawn">Force Re-spawn (E.V.A. / On Foot) [Backspace]</option>
+   <option value="player-weapon_auxiliary_action">FPS Underbarrel Attachment Action [U]</option>
+   <option value="player-free_thirdperson_camera">Free View Camera (Hold) [Z]</option>
+   <option value="player-holster">Holster Weapon [R]</option>
+   <option value="player-jump">Jump [Space]</option>
+   <option value="player-leanleft">Lean Left [Q]</option>
+   <option value="player-leanright">Lean Right [E]</option>
+   <option value="player-v_starmap">Map [F2]</option>
+   <option value="player-mobiglas">mobiGlas (Toggle) [F1]</option>
+   <option value="player-moveback">Move Backwards [S]</option>
+   <option value="player-moveforward">Move Forward [W]</option>
+   <option value="player-moveleft">Move Left [A]</option>
+   <option value="player-moveright">Move Right [D]</option>
+   <option value="player-prone">Prone [X]</option>
+   <option value="incapacitated-incapacitatedRespawn">Regen (while Incapacitated) [Backspace]</option>
+   <option value="player-reload">Reload [R]</option>
+   <option value="player-downedRevivalRequest">Request Rescue (while Incapacitated) [M]</option>
+   <option value="player-pl_hud_open_scoreboard">Scoreboard [F1]</option>
+   <option value="player-selectUtilityItem">Select Contract Item [6]</option>
+   <option value="player-selectgadget">Select Gadget [4]</option>
+   <option value="player-selectMeleeWeapon">Select Melee [5]</option>
+   <option value="player-selectprimary">Select Primary Weapon [2]</option>
+   <option value="player-selectsecondary">Select Secondary Weapon [3]</option>
+   <option value="player-selectpistol">Select Sidearm [1]</option>
+   <option value="player-thirdperson">Third Person View (Toggle) [F4]</option>
+   <option value="player-selectUnarmedCombat">Unarmed Combat [0]</option>
+   <option value="player-weapon_zeroing_decrease">Weapon Zeroing Decrease [PageDown]</option>
+   <option value="player-weapon_zeroing_increase">Weapon Zeroing Increase / Auto [PageUp]</option>
+   <option value="player-visor_wipe">Wipe Helmet Visor [Lalt+X]</option>
+</optgroup>
+<optgroup label="Quick Keys, Interactions, and Inner Thought">
+   <option value="player_choice-pc_qs_consumables">@ui_Consumable_QuickSelectRadialMenu [C]</option>
+   <option value="player_choice-pc_personal_back">Exit [Numpad0]</option>
+   <option value="player_choice-pc_qs_flight_mode">Flight Mode Select Radial Menu [Lshift+Tab]</option>
+   <option value="player_choice-pc_interaction_mode">Interaction Mode [F]</option>
+   <option value="player_choice-pc_screen_focus_down">MFD Down [S]</option>
+   <option value="player_choice-pc_screen_focus_left">MFD Left [A]</option>
+   <option value="player_choice-pc_screen_focus_right">MFD Right [D]</option>
+   <option value="player_choice-pc_screen_focus_up">MFD Up [W]</option>
+   <option value="player_choice-pc_pit_miningmode_actions">Mining Mode Actions - PIT Category [Lalt+M]</option>
+   <option value="player_choice-pc_pit_inventory">Personal Commodity Inventory (Toggle) [I]</option>
+   <option value="player_choice-pc_personal_thought">Personal Inner Thought (PIT) [F+Escape]</option>
+   <option value="player_choice-pc_qs_grenades">Throwable Select Radial Menu [G]</option>
+   <option value="player_choice-pc_qs_weapons_pistol">Weapon Select Radial Menu [1]</option>
+   <option value="player_choice-pc_qs_weapons_primary">Weapon Select Radial Menu [2]</option>
+   <option value="player_choice-pc_qs_weapons_secondary">Weapon Select Radial Menu [3]</option>
+</optgroup>
+<optgroup label="Social - Emotes">
+   <option value="player_emotes-emote_cs_forward">Forward [Numpad5]</option>
+   <option value="player_emotes-emote_cs_left">Left [Numpad1]</option>
+   <option value="player_emotes-emote_cs_no">No [Numpad6]</option>
+   <option value="player_emotes-emote_cs_right">Right [Numpad3]</option>
+   <option value="player_emotes-emote_cs_stop">Stop [Numpad2]</option>
+   <option value="player_emotes-emote_cs_yes">Yes [Numpad4]</option>
+</optgroup>
+<optgroup label="Social - General">
+   <option value="default-toggle_chat">Chat Window (Toggle) [F12]</option>
+   <option value="default-toggle_contact">CommLink App (Toggle) [F11]</option>
+   <option value="default-pl_exit">Exit seat [Y]</option>
+   <option value="default-respawn">Re-spawn [X]</option>
+</optgroup>
+<optgroup label="Social - Invites">
+   <option value="ui_notification-ui_notification_accept">Accept Invite [[]</option>
+   <option value="ui_notification-ui_notification_ignore">Ignore Invite (hold) []]</option>
+   <option value="ui_notification-ui_notification_decline">Reject Invite []]</option>
+</optgroup>
+<optgroup label="Turret Advanced">
+   <option value="turret_advanced-turret_change_position">@ui_ci_turret_change_position [S]</option>
+   <option value="turret_advanced-turret_limiter_rel_decrease">[PH] Turret - Speed Limiter - Decrease (rel) [A]</option>
+   <option value="turret_advanced-turret_limiter_rel_increase">[PH] Turret - Speed Limiter - Increase (rel) [D]</option>
+   <option value="turret_advanced-turret_change_movement_type">Change Preferred Movement Type [Escape]</option>
+   <option value="turret_advanced-turret_change_firemode">Cycle fire mode (staggered / combined) [B]</option>
+   <option value="turret_advanced-turret_recenter">Recenter Turret (Hold) [C]</option>
+   <option value="turret_advanced-turret_toggle_esp">Toggle E.S.P. on / off [E]</option>
+   <option value="turret_advanced-turret_limiter_toggle">Turret - Speed Limiter - On/Off (Hold/Toggle) [A]</option>
+   <option value="turret_advanced-turret_gyromode">Turret Gyro Stabilization (Toggle) [X]</option>
+</optgroup>
+<optgroup label="Turret Movement">
+   <option value="turret_movement-turret_remote_exit">Exit Remote Turret [Y]</option>
+   <option value="turret_movement-turret_toggle_mouse_mode">Toggle Turret Mouse Movement (VJoy, FPS style) [Q]</option>
+</optgroup>
+<optgroup label="Vehicles - Cockpit">
+   <option value="spaceship_general-v_flightready">Flight / Systems Ready [R]</option>
+   <option value="spaceship_general-v_self_destruct">Self Destruct [Backspace]</option>
+</optgroup>
+<optgroup label="Vehicles - Mining">
+   <option value="spaceship_mining-v_mining_use_consumable1">Activate Mining Module (Slot 1) [Lalt+1]</option>
+   <option value="spaceship_mining-v_mining_use_consumable2">Activate Mining Module (Slot 2) [Lalt+2]</option>
+   <option value="spaceship_mining-v_mining_use_consumable3">Activate Mining Module (Slot 3) [Lalt+3]</option>
+   <option value="spaceship_mining-v_jettison_volatile_cargo">Jettison Cargo [Lalt+J]</option>
+</optgroup>
+<optgroup label="Vehicles - Missiles">
+   <option value="spaceship_missiles-v_weapon_bombing_toggle_desired_impact_point_hold">[PH] Bombs - Toggle Desired Impact Point (Hold) [T]</option>
+   <option value="spaceship_missiles-v_weapon_cycle_missile_fwd">Cycle Next Missile Type [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_increase_max_missiles">Increase Number of Armed Missiles [G]</option>
+   <option value="spaceship_missiles-v_weapon_toggle_launch_missile">Launch Missiles (Tap) [Escape]</option>
+   <option value="spaceship_missiles-v_weapon_reset_max_missiles">Reset Number of Armed Missiles [Lalt+G]</option>
+</optgroup>
+<optgroup label="Vehicles - Power Triangle Assignment">
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_engine_combined_increase_max">Engines - Increase (Tap) / Set to Max (Hold) [F6]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_reset">Reset Assignments [F8]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_shield_combined_increase_max">Shields - Increase (Tap) / Set to Max (Hold) [F7]</option>
+   <option value="vehicle_capacitor_assignment-v_capacitor_assignment_weapon_combined_increase_max">Weapons - Increase (Tap) / Set to Max (Hold) [F5]</option>
+</optgroup>
+<optgroup label="Vehicles - Seats and Operator Modes">
+   <option value="seat_general-v_eject">Eject [Ralt+Y]</option>
+   <option value="seat_general-v_emergency_exit">Emergency Exit Seat [U+Lshift]</option>
+   <option value="seat_general-v_toggle_mining_mode">Mining Mode (Toggle) [M]</option>
+   <option value="seat_general-v_toggle_missile_mode">Missile Operator Mode (Toggle) [Escape]</option>
+   <option value="seat_general-v_toggle_quantum_mode">Quantum Travel System (Toggle) [B]</option>
+   <option value="seat_general-v_toggle_scan_mode">Scanning Mode (Toggle) [V]</option>
+</optgroup>
+<optgroup label="Vehicles - Shields and Countermeasures">
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_decrease">Decoy - Decrease Burst Size (tap) [Lalt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_burst_increase">Decoy - Increase Burst Size (tap) [Ralt+H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_decoy_launch">Decoy - Launch Burst (tap), Set and Launch Burst (hold) [H]</option>
+   <option value="spaceship_defensive-v_weapon_countermeasure_noise_launch">Noise - Deploy (Tap) [J]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_back">Shield raise level back [Numpad2]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_down">Shield raise level bottom [Numpad1]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_forward">Shield raise level front [Numpad8]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_left">Shield raise level left [Numpad4]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_right">Shield raise level right [Numpad6]</option>
+   <option value="spaceship_defensive-v_shield_raise_level_up">Shield raise level top [Numpad7]</option>
+   <option value="spaceship_defensive-v_shield_reset_level">Shield reset levels [Numpad5]</option>
+</optgroup>
+<optgroup label="Vehicles - Target Cycling">
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_fwd">Cycle Lock - All - Forward [7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_all_reset">Cycle Lock - All - Reset to Closest [Lalt+7]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_fwd">Cycle Lock - Attackers - Forward [4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_attacker_reset">Cycle Lock - Attackers - Reset to Closest [Lalt+4]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_fwd">Cycle Lock - Friendlies - Forward [6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_friendly_reset">Cycle Lock - Friendlies - Reset to Closest [Lalt+6]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_fwd">Cycle Lock - Hostiles - Forward [5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_hostile_reset">Cycle Lock - Hostiles - Reset to Closest [Lalt+5]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_fwd">Cycle Lock - In View - Forward [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_in_view_reset">Cycle Lock - In View - Under Reticle [T]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_fwd">Cycle Lock - Sub-Target - Forward [8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_subitem_reset">Cycle Lock - Sub-Target - Reset to Main Target [Lalt+8]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_fwd">Cycle Selection - Forward [R]</option>
+   <option value="spaceship_targeting_advanced-v_target_cycle_selection_reset">Cycle Selection - Reset to Auto [Lalt+R]</option>
+</optgroup>
+<optgroup label="Vehicles - Targeting">
+   <option value="spaceship_targeting-v_look_ahead_enable">Enable / Disable Look Ahead [Lalt+L]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_1">Pin Index 1 - Lock / Unlock Pinned Target [1]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_1">Pin Index 1 - Pin / Unpin Selected Target [Lalt+1]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_2">Pin Index 2 - Lock / Unlock Pinned Target [2]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_2">Pin Index 2 - Pin / Unpin Selected Target [Lalt+2]</option>
+   <option value="spaceship_targeting-v_target_toggle_lock_index_3">Pin Index 3 - Lock / Unlock Pinned Target [3]</option>
+   <option value="spaceship_targeting-v_target_toggle_pin_index_3">Pin Index 3 - Pin / Unpin Selected Target [Lalt+3]</option>
+   <option value="spaceship_targeting-v_target_remove_all_pins">Remove All Pinned Targets [0]</option>
+   <option value="spaceship_targeting-v_target_unlock_selected">Unlock Locked Target [Lalt+T]</option>
+</optgroup>
+<optgroup label="Vehicles - View">
+   <option value="spaceship_view-v_view_cycle_fwd">Cycle camera view [F4]</option>
+   <option value="spaceship_view-v_view_dynamic_zoom_rel">Dynamic Zoom In and Out (rel.) [Lalt+Escape]</option>
+   <option value="spaceship_view-v_view_freelook_mode">Freelook (Hold) [Z]</option>
+</optgroup>
+<optgroup label="Vehicles - Weapons">
+   <option value="spaceship_weapons-v_weapon_cycle_aimmode">Cycle Gimbal Assist / Standard Gimbal / Gimbal Lock modes [G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_lock_vector">Manual Gimbal Mode - Lock Aim Vector [Ralt+G]</option>
+   <option value="spaceship_weapons-v_weapon_manual_gimbal_cycle_source">Manual Gimbal Mode - Swap VJoy / Look Direction (Toggle, Hold) [Lalt+G]</option>
+</optgroup>
+<optgroup label="VOIP, FOIP and Head Tracking">
+   <option value="player_input_optical_tracking-foip_cyclechannel">Cycle through audio channels [Decimal]</option>
+   <option value="player_input_optical_tracking-headtrack_enabled">Enable Head Tracking (Toggle) [Divide]</option>
+   <option value="player_input_optical_tracking-foip_recalibrate">FOIP Recalibrate [Multiply]</option>
+   <option value="player_input_optical_tracking-foip_viewownplayer">FOIP Selfie Cam [Subtract]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk">VOIP Push To Talk [Add]</option>
+   <option value="player_input_optical_tracking-foip_pushtotalk_proximity">VOIP Push To Talk (Proximity only) [Lalt+Add]</option>
+</optgroup>
+
+
+            </select>
+        </div>
+
+        <div class="sdpi-item">
+            <div class="sdpi-item-label">Touch Delay (ms)</div>
+            <input class="sdpi-item-value sdProperty" id="delay" oninput="setSettings()">
+        </div>
+    </div>
+</body>
+</html>

@@ -10,7 +10,7 @@ using BarRaider.SdTools;
 
 namespace starcitizen.Buttons
 {
-    public abstract class StarCitizenBase : PluginBase
+    static class StreamDeckCommon
     {
         [DllImport("user32.dll")]
         private static extern uint MapVirtualKeyEx(uint uCode, uint uMapType, IntPtr dwhkl);
@@ -25,33 +25,9 @@ namespace starcitizen.Buttons
         private static extern IntPtr GetKeyboardLayout(int WindowsThreadProcessID);
 
         private static Dictionary<string,string> _lastStatus = new Dictionary<string, string>();
-
-        protected bool InputRunning;
-        protected bool ForceStop = false;
-        protected StarCitizenBase(SDConnection connection, InitialPayload payload) : base(connection, payload)
-        {
-            //Logger.Instance.LogMessage(TracingLevel.INFO, "aa");
-        }
-
-        public override void Dispose()
-        {
-            //Logger.Instance.LogMessage(TracingLevel.INFO, "bb");
-        }
-
-        public override void KeyReleased(KeyPayload payload) { }
-
-
-        public override void OnTick()
-        {
-            //Logger.Instance.LogMessage(TracingLevel.INFO, "dd");
-
-            //var deviceInfo = Connection.DeviceInfo();
-
-        }
-
-        public override void ReceivedGlobalSettings(ReceivedGlobalSettingsPayload payload) { }
-
-        private void SendInput(string inputText, int delay)
+        
+        public static bool ForceStop = false;
+        private static void SendInput(string inputText, int delay)
         {
             var text = inputText;
 
@@ -64,7 +40,7 @@ namespace starcitizen.Buttons
                 HandleMacro(macro, delay);
             }
         }
-        private void SendInputDown(string inputText)
+        private static void SendInputDown(string inputText)
         {
             var text = inputText;
 
@@ -78,7 +54,7 @@ namespace starcitizen.Buttons
             }
         }
 
-        private void SendInputUp(string inputText)
+        private static void SendInputUp(string inputText)
         {
             var text = inputText;
 
@@ -92,7 +68,7 @@ namespace starcitizen.Buttons
             }
         }
 
-        public static void HandleMacro(string macro, int delay)
+        private static void HandleMacro(string macro, int delay)
         {
             var keyStrokes = CommandTools.ExtractKeyStrokes(macro);
 
@@ -119,7 +95,7 @@ namespace starcitizen.Buttons
             }
         }
 
-        private void HandleMacroDown(string macro)
+        private static void HandleMacroDown(string macro)
         {
             var keyStrokes = CommandTools.ExtractKeyStrokes(macro);
 
@@ -143,7 +119,7 @@ namespace starcitizen.Buttons
         }
 
 
-        private void HandleMacroUp(string macro)
+        private static void HandleMacroUp(string macro)
         {
             var keyStrokes = CommandTools.ExtractKeyStrokes(macro);
 
@@ -166,15 +142,18 @@ namespace starcitizen.Buttons
             }
         }
 
-        protected void SendKeypress(string keyInfo, int delay)
+        public static void SendKeypress(string keyInfo, int delay)
         {
             if (!string.IsNullOrEmpty(keyInfo))
             {
                 SendInput("{" + keyInfo + "}", delay);
+
+                //Thread.Sleep(delay);
+
             }
         }
 
-        protected void SendKeypressDown(string keyInfo)
+        public static void SendKeypressDown(string keyInfo)
         {
             if (!string.IsNullOrEmpty(keyInfo))
             {
@@ -183,7 +162,7 @@ namespace starcitizen.Buttons
         }
 
 
-        protected void SendKeypressUp(string keyInfo)
+        public static void SendKeypressUp(string keyInfo)
         {
             if (!string.IsNullOrEmpty(keyInfo))
             {

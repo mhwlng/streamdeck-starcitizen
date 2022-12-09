@@ -13,7 +13,7 @@ namespace starcitizen.Buttons
 {
 
     [PluginActionId("com.mhwlng.starcitizen.static")]
-    public class Static : StarCitizenBase
+    public class Static : StarCitizenKeypadBase
     {
         protected class PluginSettings
         {
@@ -64,20 +64,20 @@ namespace starcitizen.Buttons
 
         public override void KeyPressed(KeyPayload payload)
         {
-            if (InputRunning || Program.dpReader == null)
+            if (Program.dpReader == null)
             {
-                ForceStop = true;
+                StreamDeckCommon.ForceStop = true;
                 return;
             }
 
-            ForceStop = false;
+            StreamDeckCommon.ForceStop = false;
 
             var action = Program.dpReader.GetBinding(settings.Function);
             if (action != null)
             {
                 Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
 
-                SendKeypressDown(CommandTools.ConvertKeyString(action.Keyboard));
+                StreamDeckCommon.SendKeypressDown(CommandTools.ConvertKeyString(action.Keyboard));
             }
 
             if (_clickSound != null)
@@ -98,20 +98,20 @@ namespace starcitizen.Buttons
         public override void KeyReleased(KeyPayload payload)
 		{
 
-            if (InputRunning || Program.dpReader == null)
+            if (Program.dpReader == null)
             {
-                ForceStop = true;
+                StreamDeckCommon.ForceStop = true;
                 return;
             }
 
-            ForceStop = false;
+            StreamDeckCommon.ForceStop = false;
 
             var action = Program.dpReader.GetBinding(settings.Function);
             if (action != null)
             {
                 Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
 
-                SendKeypressUp(CommandTools.ConvertKeyString(action.Keyboard));
+                StreamDeckCommon.SendKeypressUp(CommandTools.ConvertKeyString(action.Keyboard));
             }
 
         }
