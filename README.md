@@ -134,6 +134,10 @@ MAKE SURE that you save any images, profiles etc. that you put in these director
 And put them back after the installation.
 The plugin installer doesn't come with button images.
 
+Also, the plugin can be uninstalled and the directory completely deleted by right-clicking on any button and selecting uninstall (make a backup copy first) :
+
+![Button Image](https://i.imgur.com/BAkEuEq.png)
+
 The button configurations are not stored in the plugin directory.
 
 After uninstalling and re-installing the plugin, all the button definition should still be there.
