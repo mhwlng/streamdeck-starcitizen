@@ -71,7 +71,7 @@ Add an image to a button in this way:
 
 ![Button Image](https://i.imgur.com/xkgy7uZ.png)
 
-Animated gif files are supported. Dial images can be wider.
+Animated gif files are supported. Dial images are 200x50
 
 When the plugin is first started, it finds and opens the game file :
 

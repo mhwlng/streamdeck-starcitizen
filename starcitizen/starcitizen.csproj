@@ -96,8 +96,8 @@
     <Reference Include="streamdeck-client-csharp, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\streamdeck-client-csharp.4.3.0\lib\netstandard2.0\streamdeck-client-csharp.dll</HintPath>
     </Reference>
-    <Reference Include="StreamDeckTools, Version=3.9.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\StreamDeck-Tools.5.9.0-Beta1\lib\netstandard2.0\StreamDeckTools.dll</HintPath>
+    <Reference Include="StreamDeckTools, Version=5.9.10.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\StreamDeck-Tools.5.9.1-Beta1\lib\netstandard2.0\StreamDeckTools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -202,6 +202,9 @@
     <None Include="appsettings.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="layout2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -227,6 +230,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\pluginDialIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pluginIcon%402x.png">

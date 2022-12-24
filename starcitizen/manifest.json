@@ -39,6 +39,10 @@
           "Image": "Images/pluginIcon"
         }
       ],
+      "Encoder": {
+        "Icon": "Images/pluginDialIcon",
+        "layout": "./layout2.json"
+      },
       "SupportedInMultiActions": false,
       "Tooltip": "Star Citizen Dial Button",
       "UUID": "com.mhwlng.starcitizen.dial",
@@ -50,7 +54,7 @@
   "Name": "Star Citizen",
   "Icon": "Images/pluginIcon",
   "URL": "https://github.com/mhwlng/streamdeck-starcitizen",
-  "Version": "1.1.0",
+  "Version": "1.1.1",
   "CodePath": "com.mhwlng.starcitizen",
   "Category": "Star Citizen",
   "CategoryIcon": "Images/categoryIcon",
