@@ -177,8 +177,27 @@ namespace starcitizen.Buttons
                 }
             }
         }
+        public override void DialDown(DialPayload payload)
+        {
+            if (Program.dpReader == null)
+            {
+                StreamDeckCommon.ForceStop = true;
+                return;
+            }
 
-        public override void DialPress(DialPressPayload payload)
+            StreamDeckCommon.ForceStop = false;
+
+            //Logger.Instance.LogMessage(TracingLevel.INFO, $"Dial Down");
+            var action = Program.dpReader.GetBinding(settings.FunctionPress);
+            if (action != null)
+            {
+                Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
+
+                StreamDeckCommon.SendKeypressDown(CommandTools.ConvertKeyString(action.Keyboard));
+            }
+        }
+
+        public override void DialUp(DialPayload payload)
         {
 
             if (Program.dpReader == null)
@@ -189,27 +208,13 @@ namespace starcitizen.Buttons
 
             StreamDeckCommon.ForceStop = false;
 
-            if (payload.IsDialPressed)
+            //Logger.Instance.LogMessage(TracingLevel.INFO, $"Dial Up");
+            var action = Program.dpReader.GetBinding(settings.FunctionPress);
+            if (action != null)
             {
-                //Logger.Instance.LogMessage(TracingLevel.INFO, $"DialPress: Press");
-                var action = Program.dpReader.GetBinding(settings.FunctionPress);
-                if (action != null)
-                {
-                    Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
+                Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
 
-                    StreamDeckCommon.SendKeypressDown(CommandTools.ConvertKeyString(action.Keyboard));
-                }
-            }
-            else
-            {
-                //Logger.Instance.LogMessage(TracingLevel.INFO, $"DialPress: Release");
-                var action = Program.dpReader.GetBinding(settings.FunctionPress);
-                if (action != null)
-                {
-                    Logger.Instance.LogMessage(TracingLevel.INFO, CommandTools.ConvertKeyString(action.Keyboard));
-
-                    StreamDeckCommon.SendKeypressUp(CommandTools.ConvertKeyString(action.Keyboard));
-                }
+                StreamDeckCommon.SendKeypressUp(CommandTools.ConvertKeyString(action.Keyboard));
             }
         }
 

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICSharpCode.SharpZipLib.Zip;
 
 
 namespace SCJMapper_V2.p4kFile
@@ -16,45 +17,57 @@ namespace SCJMapper_V2.p4kFile
   /// </summary>
   public class p4kDirectory
   {
-    //  4.3.6 Overall.ZIP file format:
-    //[local file header 1]
-    //[encryption header 1]
-    //[file data 1]
-    //[data descriptor 1]
-    //  . 
-    //  .
-    //  .
-    //[local file header n]
-    //[encryption header n]
-    //[file data n]
-    //[data descriptor n]
+        //  4.3.6 Overall.ZIP file format:
+        //[local file header 1]
+        //[encryption header 1]
+        //[file data 1]
+        //[data descriptor 1]
+        //  . 
+        //  .
+        //  .
+        //[local file header n]
+        //[encryption header n]
+        //[file data n]
+        //[data descriptor n]
 
-    //[archive decryption header]
-    //[archive extra data record]
+        //[archive decryption header]
+        //[archive extra data record]
 
-    //[central directory header 1]
-    //  .
-    //  .
-    //  .
-    //[central directory header n]
-    //[zip64 end of central directory record]
-    //[zip64 end of central directory locator]
-    //[end of central directory record]
+        //[central directory header 1]
+        //  .
+        //  .
+        //  .
+        //[central directory header n]
+        //[zip64 end of central directory record]
+        //[zip64 end of central directory locator]
+        //[end of central directory record]
 
 
-    /// <summary>
-    /// Retrieve the file given by the descriptor (from our list)
-    /// and return the content as string
-    /// </summary>
-    /// <param name="file">A file descriptor from this list</param>
-    /// <returns>The content of the file or an empty string</returns>
-    public byte[] GetFile( string p4kFilename, p4kFile file )
+    private static readonly byte[] Key = new byte[] { 0x5E, 0x7A, 0x20, 0x02, 0x30, 0x2E, 0xEB, 0x1A, 0x3B, 0xB6, 0x17, 0xC3, 0x0F, 0xDE, 0x1E, 0x47 };
+
+    public byte[] GetFile(string p4kFilename, p4kFile file)
     {
-      if ( !File.Exists( p4kFilename ) ) return new byte[] { };
+        if (!File.Exists(p4kFilename)) return new byte[] { };
+        /*
+        using ( p4kRecReader reader = new p4kRecReader( p4kFilename ) ) {
+          return file.GetFile( reader );
+        } */
 
-      using ( p4kRecReader reader = new p4kRecReader( p4kFilename ) ) {
-        return file.GetFile( reader );
-      }
+        using (var pakFile = File.OpenRead(p4kFilename))
+        {
+            var pak = new ZipFile(pakFile) { Key = Key };
+
+            var entry = pak.GetEntry(file.Filename.Replace("\\", "/"));
+
+            using (Stream s = pak.GetInputStream(entry))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    s.CopyTo(ms);
+                    return ms.ToArray();
+                }
+            }
+        }
     }
 
     // scans file directory entries

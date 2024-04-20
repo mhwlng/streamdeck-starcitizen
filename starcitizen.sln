@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "starcitizen", "starcitizen\starcitizen.csproj", "{761FCC88-EAF9-4C7A-BBFD-139D186437A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsInput", "InputSimulatorPlus\WindowsInput\WindowsInput.csproj", "{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICSharpCode.SharpZipLib", "ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.csproj", "{DD0BB39C-4D0D-46B4-A606-5DF3EF234585}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zstd.Net", "Zstd.Net\Zstd.Net.csproj", "{45A8F442-9DAE-4281-BA22-6C42FDD4BF18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0BB39C-4D0D-46B4-A606-5DF3EF234585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0BB39C-4D0D-46B4-A606-5DF3EF234585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0BB39C-4D0D-46B4-A606-5DF3EF234585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0BB39C-4D0D-46B4-A606-5DF3EF234585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A8F442-9DAE-4281-BA22-6C42FDD4BF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A8F442-9DAE-4281-BA22-6C42FDD4BF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A8F442-9DAE-4281-BA22-6C42FDD4BF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A8F442-9DAE-4281-BA22-6C42FDD4BF18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

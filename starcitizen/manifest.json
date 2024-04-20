@@ -54,7 +54,7 @@
   "Name": "Star Citizen",
   "Icon": "Images/pluginIcon",
   "URL": "https://github.com/mhwlng/streamdeck-starcitizen",
-  "Version": "1.1.1",
+  "Version": "1.1.2",
   "CodePath": "com.mhwlng.starcitizen",
   "Category": "Star Citizen",
   "CategoryIcon": "Images/categoryIcon",
@@ -66,7 +66,7 @@
   ],
   "SDKVersion": 2,
   "Software": {
-    "MinimumVersion": "6.0"
+    "MinimumVersion": "6.1"
   },
   "Profiles": [
 

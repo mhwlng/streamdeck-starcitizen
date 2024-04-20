@@ -14,7 +14,7 @@ The bound key is shown in the dropdown, localised for the current keyboard langu
 
 **The plugin does not contain any button images or ready made streamdeck profiles.**
 
-Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 for all the code to get the `defaultProfile.xml` from the p4k file etc.
+Credit goes to https://github.com/SCToolsfactory/SCJMapper-V2 and https://github.com/dolkensp/unp4k for all the code to get the `defaultProfile.xml` from the p4k file etc.
 
 The static button works in a similar way, to the streamdeck 'Hotkey' button type.
 So, there is only one image and there is no game state feedback for these buttons.
@@ -81,9 +81,9 @@ and extracts `defaultProfile.xml` and also english text resources. This could ta
 
 **The plugin should automatically find the actual path where Star Citizen was installed.**
 
-The path, that is found by the plugin, is logged in the `pluginlog.log` file.
+The path, that is found by the plugin, is logged in the `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\pluginlog.log` file.
 
-If the path is incorrect, then the `appsettings.config` file can be adjusted with the correct paths to the p4k file and the actionmaps.xml directory :
+If the path is incorrect, then the `%appdata%\Elgato\StreamDeck\Plugins\com.mhwlng.starcitizen.sdPlugin\appsettings.config` file can be adjusted with the correct paths to the p4k file and the actionmaps.xml directory :
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -149,6 +149,8 @@ Thanks to :
 https://github.com/BarRaider/streamdeck-tools
 
 https://github.com/SCToolsfactory/SCJMapper-V2
+
+https://github.com/dolkensp/unp4k
 
 https://github.com/ishaaniMittal/inputsimulator
 
